@@ -1,0 +1,29 @@
+.image{
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-5%);
+    width: 800px;
+    height: 660px;
+
+}
+
+
+ @media screen and (max-width: 978px){
+     .image{
+        display: none;
+        
+     }
+ }
+
+ @media screen and (max-width: 1250px){
+     .image{
+        width: 600px;
+        height: 500px;
+     }
+ }
+
+.textContainer{
+    margin: 0 0 4rem 0;
+}

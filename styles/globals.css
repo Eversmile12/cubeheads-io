@@ -1,16 +1,65 @@
-html,
-body {
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Rubik:wght@500&display=swap");
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html{
+  font-size: 62.5%;
+  background: linear-gradient(229deg, rgb(255 255 255) 60%, rgba(253,255,194,1) 160%);
 }
 
-* {
+body{
+  
+  font-size: 1.8rem;
   box-sizing: border-box;
+  color: #48424F;
+  position: relative;
 }
+
+h1{
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif
+}
+
+p.semi-bold{
+  font-weight: 600;
+}
+
+p.x-small{
+  font-size: 1.6rem
+}
+
+a{
+  text-decoration: none;
+  color: #ff976a;
+}
+
+
+
+.error{
+  border: 3px solid #ff4e48f3 !important;
+  padding-left: .3rem;
+  border-radius: 4px;
+  max-width: 35%;
+}
+
+@media screen and (max-width: 1200px){
+  .error{
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 796px){
+  .error{
+    max-width: 100%;
+  }
+}
+
