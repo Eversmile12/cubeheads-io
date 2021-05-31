@@ -2,9 +2,7 @@
     padding: 2rem;
     text-align: center;
     clear: both;
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
+    margin-top: auto;
 }
 
 .copyrights {
