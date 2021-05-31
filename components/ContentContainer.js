@@ -6,7 +6,7 @@ const ContentContainer = styled.div`
     position: relative;
 
 
-    @media (max-width : 768px){
+    @media (max-width : 1200px){
         padding: 2rem 3rem 0 3rem;
     }
 `;
