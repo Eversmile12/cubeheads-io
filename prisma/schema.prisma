@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model job {
+  id            Int       @id @default(autoincrement())
+  studioName   String?   @map("studio_name")
+  jobTitle     String?   @map("job_title")
+  jobUrl       String?   @map("job_url")
+  jobLocation  String?   @map("job_location")
+  jobTimestamp DateTime? @default(now()) @map("job_timestamp")
+  lastSeen     DateTime  @default(now()) @map("last_seen")
+  studio       studio?  @relation(fields: [studioName], references: [studioName])
+
+  @@index([studioName], name: "studio_name")
+  @@map("jobs")
+}
+
+model studio {
+  studioName     String  @id @map("studio_name")
+  studioWebsite  String? @map("studio_website")
+  studioLocation String? @map("studio_location")
+  job            job[]
+
+  @@map("studios")
+}
+
+
