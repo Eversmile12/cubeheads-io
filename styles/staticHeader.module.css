@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #324473;
+    color: #fffffa;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.textContainer{
+    width: 35%;
+    margin-right: 5rem;
+}
+
+.headerImage{
+    object-fit: contain;
+}

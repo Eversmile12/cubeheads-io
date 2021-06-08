@@ -11,6 +11,7 @@ model job {
   id            Int       @id @default(autoincrement())
   studioName   String?   @map("studio_name")
   jobTitle     String?   @map("job_title")
+  jobDescription String? @map("job_description")
   jobUrl       String?   @map("job_url")
   jobLocation  String?   @map("job_location")
   jobTimestamp DateTime? @default(now()) @map("job_timestamp")
@@ -25,6 +26,7 @@ model studio {
   studioName     String  @id @map("studio_name")
   studioWebsite  String? @map("studio_website")
   studioLocation String? @map("studio_location")
+  studioLogo String? @map("studio_logo")
   job            job[]
 
   @@map("studios")

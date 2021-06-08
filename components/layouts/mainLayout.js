@@ -1,13 +1,10 @@
-import Navbar from "../partials/navbar"
-import Footer from "../partials/footer"
+import Navbar from "./navbar"
+import Footer from "./footer"
 
 const LandingPageLayout = ({children}) => {
     return (
-        <div>
+        <div className="wrapper">
             <Navbar></Navbar>
-                <div>
-
-                </div>
                 {children}
             <Footer></Footer>
         </div>

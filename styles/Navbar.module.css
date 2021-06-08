@@ -4,3 +4,21 @@
 
 @media screen and (min-width: 768px){
 }
+
+
+.listItem {
+    display: inline-block;
+    margin-right: 3rem;
+}
+
+.listItem a{
+    color: #48424F;
+    list-style: none;
+    text-decoration: none;
+}
+
+.listItem a:hover{
+    color: #39343f;
+    border-bottom: 1px solid #39343f;
+}
+

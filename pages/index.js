@@ -1,37 +1,53 @@
-import SubscribeForm from "../components/subscribe-box"
-import ContentContainer from "../components/ContentContainer"
-import XlHeader from "../components/HeaderXl"
-import styles from "../styles/Landing.module.css"
-import DescriptionBox from "../components/DescriptionBox"
-import Head from "next/head"
-export default function landingLaunch(){
-
+import StaticHeader from "../components/staticHeader"
+import JobList from "../components/jobList"
+import StandardContentContainer from "../components/layouts/standardContentContainer"
+import { useQuery, gql } from "@apollo/client"
+const GET_JOBS_QUERY = ` 
+  {
+      jobs{
+      id
+      job_title
+      job_location
+      job_description
+      studio_name{
+        studio_name
+        studio_logo
+      }
+    }
  
-    return(
-        <ContentContainer>
-            <Head>
-            {/* https://css-tricks.com/essential-meta-tags-social-media/ */}
-                <title>cubeheads.io | Land your dream studio</title>
-                <link rel="icon" href="/logo-type-black.png"></link>
-                <meta property="og:title" content="cubeheads.io | Game dev jobs list"/>
-                <meta property="og:description" content="Land your dream job in the Game Dev Industry"/>
-                <meta property="og:url" content="http://euro-travel-example.com/index.htm"/>
-                <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="keywords" content="gamedev, game development, jobs, work"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-            </Head>
-            <XlHeader>Work in the Game Industry, <br></br><span>Land your dream Studio.</span></XlHeader>
-            <img className= {styles.image} src="/rocket-saly.png" ></img>
-            
-            <div className={styles.textContainer} >
-                <DescriptionBox></DescriptionBox>
-                <p style={{"marginTop" : "2rem"}}><strong>Land your dream Game studio, create the next masterpiece.</strong></p>
-                 
-                
-                <SubscribeForm></SubscribeForm>
-            </div>
-           
-        </ContentContainer>
-        
+}`;
+
+
+export async function getStaticProps(){
+    const req = await fetch("http://localhost:3000/api/graphql", {
+        method: 'POST',
+        headers: {
+            'Content-Type' : "application/json"
+        },
+        body: JSON.stringify({
+            "query" : GET_JOBS_QUERY
+        }),
+    })
+    const json = await req.json()
+    if (json.errors) {
+        console.error(json.errors)
+        throw new Error('Failed to fetch API')
+    }
+  return {
+    props:{
+      jobs: json.data.jobs
+    },
+  }
+}
+
+export default function Home({jobs}){
+    return (
+        <div>
+        <StaticHeader></StaticHeader>
+        <StandardContentContainer>
+            <JobList jobs={jobs}></JobList>
+        </StandardContentContainer>
+          
+        </div>
     )
 }

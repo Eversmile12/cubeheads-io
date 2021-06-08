@@ -1,8 +1,8 @@
 import axios from "axios"
 import React, { useEffect } from "react"
-import CTAButton from "./CTAbutton"
-import FormInput from "./FormInput"
-import PrivacyPolicies from "./PrivacyPolicies"
+import Link from "next/link"
+import { FormInput } from "./UIElements/inputs"
+import { SubmitButton } from "./UIElements/buttons"
 
 
 const SubscribeForm = () => {
@@ -46,7 +46,7 @@ const SubscribeForm = () => {
                     updateSubscribedState(true)
                     updateErrorState(false)
                     updateMessage("")
-                    updateMessage(data.message)  
+                    updateMessage(message)  
                 }
                 updateHasError("")
                            
@@ -69,9 +69,14 @@ const SubscribeForm = () => {
                 
                 :
                 <form style = {{"margin-top": "4rem"}}>
-                <FormInput className={hasError == "EMAIL" && "error"} placeholder="Email" onChange={handleEmailChange}></FormInput>
-                <CTAButton  type="submit" onClick={handleSubmit}>JOIN THE WAITING LIST</CTAButton>                
-                <PrivacyPolicies isError = {hasError == "CHECKBOX" ? true:false} handleOnChange= {() => updateCheckBoxIsChecked(!checkboxIsChecked)}></PrivacyPolicies>
+                <FormInput type="email" style={{"border-radius" : "4px 0 0 4px "}} className={hasError == "EMAIL" && "error"} placeholder="Email" onChange={handleEmailChange}></FormInput>
+                
+                <SubmitButton type="submit" onClick={handleSubmit}>Keep me updated</SubmitButton>              
+            
+                <div className={hasError == "CHECKBOX" && "error"} style ={{"margin-top": "1rem"}}>
+                    <input onChange={() => updateCheckBoxIsChecked(!checkboxIsChecked)}   type="checkbox"></input>
+                    <p style={{"display": "inline-block", "margin-left" : "1rem" }} className="x-small" > I accept the <Link href="https://www.freeprivacypolicy.com/live/d1da3cc5-c336-437a-b469-fab34d7c3bb0">privacy policies</Link></p>
+                </div> 
                 {
                     isError && <p style={{"marginTop": "2rem", "color" : "#ff976a"}}> { message }</p>
                 }             
