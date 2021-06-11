@@ -1,22 +1,10 @@
 import FilterBox from "./partials/filterBox"  
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useLazyQuery, useQuery, gql } from "@apollo/client"
 import JobListItem from "./partials/jobListItem"
 import styled from "styled-components"
-const GET_JOBS_QUERY = gql` 
-  query($role: String, $location : String) {
-      jobs(roleContains: $role, locationContains: $location){
-      id
-      job_title
-      job_location
-      job_description
-      studio_name{
-        studio_name
-        studio_logo
-      }
-    }
- 
-}`;
+import Pagination from "./partials/pagination"
+import { GET_ALL_JOBS_AND_COUNT } from "../pages/api/graphql/queries/queries"
 
 
 const JobListContainer = styled.div`
@@ -24,31 +12,55 @@ const JobListContainer = styled.div`
   margin: 4rem auto;
 `
 
-  export default function JobList({jobs}){
+  export default function JobList({jobs, retrievedJobCount}){
     const [jobTitle, updateJobTitle] = React.useState("")
     const [jobLocation, updateJobLocation] = React.useState("")
-    let [getJobs, {loading, data }] = useLazyQuery(GET_JOBS_QUERY)
-    console.log(jobs)
+    const [totalJobs, setTotalJobs] = React.useState(retrievedJobCount)
+
+    const [getJobs, {loading, data }] = useLazyQuery(GET_ALL_JOBS_AND_COUNT)
+    const [queryOffset, setQueryOffset] = useState(0)
+    const [jobProp, setJobsProp] = useState(jobs)
+
+
+    useEffect(() => {
+      if(data){
+        console.log(data)
+        setTotalJobs(data.jobs_count)
+      }
+    }, [data])
+
     function roleChangeHandler(e){
       updateJobTitle(e.target.value)
-      console.log(jobTitle)
     }
 
     function locationChangeHandler(e){
 
       updateJobLocation(e.target.value)
-      console.log(jobLocation)
     }
 
+    function queryJobs(offset = 0){
+      console.log("Job title: ", jobTitle )
+      console.log("job location: ", jobLocation)
+      getJobs({variables: {offset : (offset), role: jobTitle, location: jobLocation}})
+      console.log(data)
+      console.log("job location: ", jobLocation)
+      if(jobProp){
+        setJobsProp()
+      }
+    }
+
+  
+
       return (
-        <div className="mt-xl">
-          <FilterBox  roleChangeHandler={roleChangeHandler} onSubmitHandler = { () => getJobs({variables: {role: jobTitle, location: jobLocation}}) } jobTitle={jobTitle} locationChangeHandler={locationChangeHandler} jobLocation={jobLocation}></FilterBox>
+        <div>
+          <FilterBox  roleChangeHandler={roleChangeHandler} onSubmitHandler = { queryJobs }jobTitle={jobTitle} locationChangeHandler={locationChangeHandler} jobLocation={jobLocation}></FilterBox>
           <JobListContainer >
+            <p>Jobs found: {totalJobs}</p>
             <ul>
-              {data ? data.jobs.map(job => <JobListItem jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>) : 
-              jobs.map(job => <JobListItem jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>)}
+              {jobProp && jobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>)}
+              {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>)}
             </ul>
-            
+            <Pagination startingPage={1} lastPageValue = {7} firstPageValue ={1} totalItems={totalJobs} perPage={8} onClickHandler={queryJobs}></Pagination>
           </JobListContainer>
         </div>
           

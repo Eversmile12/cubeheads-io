@@ -29,6 +29,10 @@ h1{
   font-size: 2.4rem;
 }
 
+a{
+  color: #FF305E;
+  text-decoration: none   ;
+}
 
 
 p{
@@ -41,6 +45,9 @@ p.semi-bold{
 
 p.x-small{
   font-size: 1.6rem
+}
+.mt-xs{
+  margin-top: 1rem;
 }
 .mt-xl{
   margin-top: 6rem;
@@ -71,6 +78,10 @@ p.x-small{
   margin-left:2rem;
 }
 
+.mb-xs{
+  margin-bottom:1rem;
+}
+
 .mb-l{
   margin-bottom:4rem;
 }
@@ -85,6 +96,10 @@ p.x-small{
   max-width: 80%;
 }
 
+.current{
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1200px){
   .error{
     max-width: 50%;
@@ -94,6 +109,7 @@ p.x-small{
 @media screen and (max-width: 796px){
   .error{
     max-width: 100%;
+    justify-content: ;
   }
 }
 

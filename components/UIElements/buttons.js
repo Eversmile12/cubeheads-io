@@ -3,30 +3,46 @@ import styled from "styled-components"
 const SubmitButton = styled.div`
     display: inline-block;
     font-size: 1.3rem;
-    background:  linear-gradient(90.99deg, #FF976A -70.12%, #B5627C 71.87%);
+    background:  #FF305E;
+    font-weight: 600;
     padding: 1rem 1.5rem;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
 `
 
+const NavButton = styled.button`
+background-color: #FF305E;
+border-radius: 3px;
+color: #FFFFFA;
+padding: .9rem 2rem;
+border: none;
+font-weight: 600;
+cursor: pointer;
 
+:hover{
+    background: #3196b0;
+}
+
+`
 
 const FilterButton = styled.button`
     display: inline-block;
     font-size: 1.3rem;
-    background:  #324473;
+    background:  #0E1526;
     color: #FFFFFA;
     width: 31rem;
     font-weight: 600;
     padding: .8rem 2rem;
+    border-radius: 3px;
     border: none;
     cursor: pointer;
 `
 
-const MainButton = styled.button`
+const MainButton = styled.a`
     display: inline-block;
+    text-align: center;
     font-size: 1.3rem;
-    background: #324473;
+    background: #0E1526;
     color: #FFFFFA;
     font-weight: 600;
     padding: .8rem 1rem;
@@ -35,4 +51,15 @@ const MainButton = styled.button`
     cursor: pointer;
     min-width: 10rem;
 `
-export { SubmitButton, FilterButton, MainButton }
+
+
+const CTAButton = styled.a`
+background-color: #FF305E;
+border-radius: 3px;
+color: #FFFFFA;
+padding: .9rem 2rem;
+border: none;
+font-size: 1.3rem;
+cursor: pointer;
+`
+export { SubmitButton, FilterButton, MainButton, NavButton, CTAButton }

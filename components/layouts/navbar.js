@@ -1,38 +1,25 @@
-import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 import styled from "styled-components"
-
+import { NavButton } from "../UIElements/buttons"
 
 
 const NavBar = styled.nav`
     display: flex;
-    padding: 3rem 5.5rem;
+    padding: 2rem 5rem;
     justify-content: space-between;
     align-items: center;
 `
-
-const NavButton = styled.button`
-    background-color: #2789A2;
-    border-radius: 3px;
-    color: #FFFFFE;
-    padding: .9rem 2rem;
-    border: none;
-    font-weight: 600;
+const Logo = styled.img`
     cursor: pointer;
-
-    :hover{
-        background: #3196b0;
-    }
-
 `
+
 
 export const Navbar = () => {
     return (
         <header>
             <NavBar>
-                <div className="nav__logo">
-                    <Image src="/logo-full-black.png" width="125" height="29"></Image>
+                <div className="nav-logo">
+                    <Link href="/"><Logo src="/logo-full-black.png" width="125" height="29"></Logo></Link>
                 </div>
                 <div>
                     {/* <ul style={{"display" : "inline-block"}}>

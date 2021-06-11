@@ -1,0 +1,61 @@
+import styled from "styled-components"
+import { TitleHeader } from "../components/UIElements/headers"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import {FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
+
+
+
+
+
+
+const StudioHeaderContainer = styled.div`
+    background: #0E1526;
+    height: 60vh;
+    color: #FFFFFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position:relative;
+`
+
+const ImageContainer = styled.div`
+    background: #FFFFFA;
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+`
+
+
+
+const LocationContainer = styled.div`
+   position:absolute;
+   bottom: 3%;
+   opacity: .7;
+   ${'' /* font-size: 1.4rem; */}
+`
+
+
+
+export default function StudioHeader({studioName, studioLogo, jobTitle}){
+    return (
+        <StudioHeaderContainer>
+                <ImageContainer>
+                    <img src={studioLogo} width="150" height="150"></img>
+                </ImageContainer>
+
+                <TitleHeader>{jobTitle}</TitleHeader>
+                <div>
+                    <FontAwesomeIcon className="mr-s" style={{"color" : "#FF305E", "opacity" : ".65", "display" : "inline-block"}} icon={faMapMarkerAlt}></FontAwesomeIcon>
+                    <p style={{"display" : "inline-block"}}>Manchester, United Kingdom</p>
+                </div>
+               
+                    
+                    <p style={{"position" : "absolute", "bottom" : "2%"}}><span style={{"color" : "#FF305E" }}>Studio:</span> {studioName}</p>
+
+               
+        </StudioHeaderContainer>
+    )
+}

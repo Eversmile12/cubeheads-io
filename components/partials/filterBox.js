@@ -17,7 +17,7 @@ export default function FilterBox(props){
             </FiltersRow>
             <FiltersRow>
                 <FilterDropDown className="mr-m"></FilterDropDown>
-                <FilterButton  onClick={props.onSubmitHandler}>Filter</FilterButton>
+                <FilterButton  onClick={() => {props.onSubmitHandler(0)}}>Filter</FilterButton>
             </FiltersRow>
         </div>
     )

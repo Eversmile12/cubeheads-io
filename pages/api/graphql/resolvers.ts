@@ -1,65 +1,53 @@
-import{ gql } from "apollo-server-micro"
+
 
 export const resolvers = {
     Query: {
         jobs: async (_, args, context) =>{
-            if(args.unique_location){
-                console.log("printing unique")
-                return context.prisma.job.findMany({
-                    take: args.count,
-                    skip: args.offset,
-                    distinct: ['jobLocation']
-                })
-            }if(args.locationContains || args.roleContains){
-                if(!args.roleContains){
-                    return context.prisma.job.findMany({
-                        where: {
-                            jobLocation: {
-                                contains: args.locationContains
-                            }
-                        }
-                    })
-                }else if(!args.locationContains){
-                    return context.prisma.job.findMany({
-                        where: {
-                            jobTitle: {
-                                contains: args.roleContains
-                            }
-                        }
-                    })
-                }
-                return context.prisma.job.findMany({
-                    where: {
-                        AND:{
-                            jobTitle: {
-                                contains: args.roleContains
-                            },
-                            jobLocation: {
-                                contains: args.locationContains
-                            }
+            
+            return context.prisma.job.findMany({
+                where:{
+                    AND:{
+                        jobTitle: {
+                            contains: args.roleContains,
+                        },
+                        jobLocation: {
+                            contains: args.locationContains
                         }
                     }
-                })
-            }
-            return context.prisma.job.findMany({
+                },
+                take: args.count,
+                skip: args.offset
+            })
+            
+        },
+
+        studios: async (_, args, context) => {
+            return context.prisma.studio.findMany({
+                where: {
+                    studioName: args.studioName,
+                },
                 take: args.count,
                 skip: args.offset
             })
         },
 
-        studios: async (_, args, context) => {
-            if(args.unique_location){
-                return context.prisma.job.findMany({
-                    take: args.count,
-                    skip: args.offset,
-                    distinct: ['studioName']
-                })
-            }
-            return context.prisma.studio.findMany({
-                take: args.count,
-                skip: args.offset
+        jobs_count: async (_, args, context) => {return context.prisma.job.count()},
+        
+        job: async (_,args, context) => {
+            return context.prisma.job.findUnique({
+                where: {
+                    id: args.id
+                }
             })
         },
+
+        studio: async (_, args, context) => {
+            return context.prisma.studio.findUnique({
+                where: {
+                    studioName: args.studioName
+                }
+            })
+        }
     },
 
     Studio: {

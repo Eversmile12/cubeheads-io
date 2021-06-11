@@ -7,12 +7,12 @@ export default function StaticHeader({props}){
     return(
         <div className={styles.wrapper}>
             <div className={styles.textContainer}>
-                <XlHeader className="mb-l">News letter cta dolor sit amte. Lorem ipsum dolor</XlHeader>
-                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <XlHeader className="mb-l">Your dream studio is just a few clicks away.</XlHeader>
+                <p style={{"line-height" : "2em"}}>Receive stunning game dev jobs in wonderful studios.<br></br>Directly to your inbox <strong>once a week.</strong></p>
                 <SubscribeForm></SubscribeForm>
             </div>
             <div>
-                <img className={styles.headerImage} src="/email-header-image.png" width="582" height="602"></img>
+                <img className={styles.headerImage} src="/header-image.svg"></img>
             </div>
         </div>
     )

@@ -73,8 +73,8 @@ function FilterTextInput({placeholder, context, value, onChangeHandler, classNam
 
 function FilterDropDown({className}){
     return (
-        <FilterDropDownPartial className={className}>
-            <option value disabled selected>Location</option>        
+        <FilterDropDownPartial defaultValue = "Location" className={className}>
+            <option value="Location" disabled>Location</option>        
             <option value="placeholder">placeholder</option>
             <option value="placeholder">placeholder</option>
             <option value="placeholder">placeholder</option>

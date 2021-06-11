@@ -1,19 +1,25 @@
 .wrapper{
     display: flex;
+    position: relative;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    background-color: #324473;
+    background-color: #0E1526;
     color: #fffffa;
-    height: 75vh;
+    height: 70vh;
     overflow: hidden;
+    padding: 0 20rem;
 }
 
 .textContainer{
-    width: 35%;
-    margin-right: 5rem;
+    width: 60%;
+    margin-right: 3rem;
 }
 
 .headerImage{
     object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    width: 68rem;
+    height: 60rem;
 }

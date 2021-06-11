@@ -31,9 +31,9 @@ const JobDescription = styled.p`
     text-align: justify
 `
 
-export default function JobListItem({jobRole, jobLocation, studio, jobDescription, studioLogo}){
+export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo}){
     return(
-        <ListItemContainer>
+        <ListItemContainer key={keyValue}>
             <img className="mr-s" src={studioLogo} width="150" height="150"></img>
             <div className="mr-m">
                 <div >
@@ -44,7 +44,7 @@ export default function JobListItem({jobRole, jobLocation, studio, jobDescriptio
                 <JobDescription>{jobDescription.substring(0,150)}.. </JobDescription>
             
             </div>
-                <MainButton>Read More</MainButton>
+                <MainButton href={"/jobs/" + keyValue}>Learn More</MainButton>
         </ListItemContainer>
     )
 }
