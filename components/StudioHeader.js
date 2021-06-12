@@ -39,21 +39,21 @@ const LocationContainer = styled.div`
 
 
 
-export default function StudioHeader({studioName, studioLogo, jobTitle}){
+export default function StudioHeader({title, logo, studioName, studioId, location}){
     return (
         <StudioHeaderContainer>
                 <ImageContainer>
-                    <img src={studioLogo} width="150" height="150"></img>
+                    <img src={logo} width="150" height="150"></img>
                 </ImageContainer>
 
-                <TitleHeader>{jobTitle}</TitleHeader>
+                <TitleHeader>{title}</TitleHeader>
                 <div>
                     <FontAwesomeIcon className="mr-s" style={{"color" : "#FF305E", "opacity" : ".65", "display" : "inline-block"}} icon={faMapMarkerAlt}></FontAwesomeIcon>
-                    <p style={{"display" : "inline-block"}}>Manchester, United Kingdom</p>
+                    <p style={{"display" : "inline-block"}}>{location}</p>
                 </div>
                
                     
-                    <p style={{"position" : "absolute", "bottom" : "2%"}}><span style={{"color" : "#FF305E" }}>Studio:</span> {studioName}</p>
+                 {studioName &&  <p style={{"position" : "absolute", "bottom" : "2%"}}><span style={{"color" : "#FF305E" }} className="mr-s">Studio:</span><a style={{"color" : "white"}} href={"/studios/" + studioId}>{studioName}</a></p>}  
 
                
         </StudioHeaderContainer>

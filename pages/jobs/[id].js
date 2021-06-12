@@ -37,20 +37,22 @@ export const getStaticProps = async (context) =>{
     return{
         props:{ 
             jobTitle: data.job.job_title,
-            studioName: data.job.studio_name.studio_name,
-            studioLogo: data.job.studio_name.studio_logo,
+            studioId: data.job.studio_id.id,
+            studioName: data.job.studio_id.studio_name,
+            studioLogo: data.job.studio_id.studio_logo,
             jobDescription: data.job.job_description.split("\n"),
-            jobUrl: data.job.job_url
+            jobUrl: data.job.job_url,
+            jobLocation: data.job.job_location
         }
     }
 
 }
 
 
-export default function jobDetails({studioName, studioLogo, jobTitle, jobDescription, jobUrl}){
+export default function jobDetails({studioName, studioLogo, jobTitle, jobDescription, jobUrl, studioId, jobLocation}){
     return(
         <div>
-            <StudioHeader studioName = {studioName} studioLogo = {studioLogo} jobTitle={jobTitle} ></StudioHeader>
+            <StudioHeader studioId = {studioId} studioName = {studioName} logo = {studioLogo} title ={jobTitle} location = {jobLocation} ></StudioHeader>
             <JobPageContainer>
                 <h2 className="mb-m">Description:</h2>
                 {jobDescription.map(line => {

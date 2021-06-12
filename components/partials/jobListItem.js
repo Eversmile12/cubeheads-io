@@ -1,6 +1,11 @@
 import {MainButton} from "../UIElements/buttons"
 import styled from "styled-components"
-import Image from "next/image"
+
+
+const JobListContainer = styled.div`
+  width: 70rem;
+  margin: 4rem auto;
+`
 
 const ListItemContainer = styled.li`
     padding: 1rem;
@@ -31,14 +36,14 @@ const JobDescription = styled.p`
     text-align: justify
 `
 
-export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo}){
+export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo, studioId}){
     return(
         <ListItemContainer key={keyValue}>
             <img className="mr-s" src={studioLogo} width="150" height="150"></img>
             <div className="mr-m">
                 <div >
                     <JobTitle>{jobRole}</JobTitle>
-                    <JobInfo>{studio}</JobInfo>
+                    <a href={"/studios/" + studioId }><JobInfo>{studio}</JobInfo></a>
                     <JobInfo>{jobLocation}</JobInfo>
                 </div>
                 <JobDescription>{jobDescription.substring(0,150)}.. </JobDescription>
@@ -48,3 +53,5 @@ export default function JobListItem({keyValue ,jobRole, jobLocation, studio, job
         </ListItemContainer>
     )
 }
+
+export { JobListContainer }

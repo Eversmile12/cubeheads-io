@@ -7,7 +7,9 @@ const GET_JOBS_BY_ID =gql`
         job_title
         job_description
         job_url
-        studio_name{
+        job_location
+        studio_id{
+            id
             studio_name
             studio_logo
         }
@@ -16,8 +18,6 @@ const GET_JOBS_BY_ID =gql`
 
 `
 
-
-
 const GET_ALL_JOBS_AND_COUNT =  gql` 
 query($offset : Int, $role: String, $location : String) {
     jobs(offset:$offset, count:8, roleContains: $role, locationContains: $location){
@@ -25,7 +25,8 @@ query($offset : Int, $role: String, $location : String) {
     job_title
     job_location
     job_description
-    studio_name{
+    studio_id{
+      id
       studio_name
       studio_logo
     }
@@ -41,24 +42,40 @@ const GET_ALL_JOBS_IDS = gql`
     }
 }`;
 
+const GET_JOBS_BY_STUDIO =gql` 
+        
+    query jobs($studioId: Int!){
+        jobs(studioId: $studioId){
+        id
+        job_title
+        job_description
+        job_url
+        job_location
+    }
+}
 
-const GET_ALL_STUDIOS_NAMES = gql` 
+`
+
+const GET_ALL_STUDIOS_IDS = gql` 
 {
     studios{
-      studio_name
+      id
     }
 }`;
 
 
 
 
-const GET_STUDIO_BY_NAME = gql` 
-query($studioName : String) {
-    studio(studioName: $studioName){
+const GET_STUDIO_BY_ID = gql` 
+query($id : Int) {
+    studio(id: $id){
       studio_name
       studio_website
+      studio_location
+      studio_logo
       studio_location
     }
 }`;
 
-export { GET_JOBS_BY_ID, GET_ALL_JOBS_IDS, GET_ALL_JOBS_AND_COUNT, GET_ALL_STUDIOS_NAMES, GET_STUDIO_BY_NAME }
+export { GET_JOBS_BY_ID, GET_ALL_JOBS_IDS, GET_ALL_JOBS_AND_COUNT, GET_JOBS_BY_STUDIO,
+          GET_ALL_STUDIOS_IDS, GET_STUDIO_BY_ID,  }

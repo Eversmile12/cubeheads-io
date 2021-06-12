@@ -1,16 +1,12 @@
 import FilterBox from "./partials/filterBox"  
 import React, { useEffect, useState } from "react"
-import { useLazyQuery, useQuery, gql } from "@apollo/client"
-import JobListItem from "./partials/jobListItem"
-import styled from "styled-components"
+import { useLazyQuery } from "@apollo/client"
+import JobListItem, { JobListContainer} from "./partials/jobListItem"
 import Pagination from "./partials/pagination"
 import { GET_ALL_JOBS_AND_COUNT } from "../pages/api/graphql/queries/queries"
 
 
-const JobListContainer = styled.div`
-  width: 70rem;
-  margin: 4rem auto;
-`
+
 
   export default function JobList({jobs, retrievedJobCount}){
     const [jobTitle, updateJobTitle] = React.useState("")
@@ -57,8 +53,8 @@ const JobListContainer = styled.div`
           <JobListContainer >
             <p>Jobs found: {totalJobs}</p>
             <ul>
-              {jobProp && jobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>)}
-              {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_name.studio_name} studioLogo = {job.studio_name.studio_logo} jobDescription = {job.job_description}></JobListItem>)}
+              {jobProp && jobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
+              {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
             </ul>
             <Pagination startingPage={1} lastPageValue = {7} firstPageValue ={1} totalItems={totalJobs} perPage={8} onClickHandler={queryJobs}></Pagination>
           </JobListContainer>

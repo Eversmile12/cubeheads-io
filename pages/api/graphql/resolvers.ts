@@ -12,7 +12,8 @@ export const resolvers = {
                         },
                         jobLocation: {
                             contains: args.locationContains
-                        }
+                        },
+                        studioId: args.studioId
                     }
                 },
                 take: args.count,
@@ -23,15 +24,25 @@ export const resolvers = {
 
         studios: async (_, args, context) => {
             return context.prisma.studio.findMany({
-                where: {
-                    studioName: args.studioName,
-                },
                 take: args.count,
                 skip: args.offset
             })
         },
 
-        jobs_count: async (_, args, context) => {return context.prisma.job.count()},
+        jobs_count: async (_, args, context) => {
+            return context.prisma.job.count({
+                where: {
+                    AND:{
+                        jobTitle: {
+                            contains: args.roleContains
+                        },
+                        jobLocation: {
+                            contains: args.locationContains
+                        }
+                    }
+                }
+            })
+        },
         
         job: async (_,args, context) => {
             return context.prisma.job.findUnique({
@@ -44,7 +55,7 @@ export const resolvers = {
         studio: async (_, args, context) => {
             return context.prisma.studio.findUnique({
                 where: {
-                    studioName: args.studioName
+                    id: args.id
                 }
             })
         }
@@ -60,8 +71,8 @@ export const resolvers = {
 
     Job: {
         id: (job) => job.id,
-        studio_name: async (job, args, context) => {
-           return await context.studioLoader.load(job.studioName)
+        studio_id: async (job, args, context) => {
+           return await context.studioLoader.load(job.studioId)
         },
         job_title: (job) => job.jobTitle,
         job_description: (job) => job.jobDescription,
