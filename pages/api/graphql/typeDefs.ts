@@ -10,7 +10,7 @@ export const typeDefs = gql`
     }
 
     type Job {
-        id: Int!
+        id: ID!
         studio_id: Studio
         job_title: String!
         job_description: String!

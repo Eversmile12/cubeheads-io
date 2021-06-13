@@ -2,7 +2,7 @@ import  DataLoader from "dataloader"
 import prisma from "../../../../prisma/setup"
 
 
-const batchStudios = async (ids) => {
+const batchStudios = async (ids : number[]) => {
     const studios = await prisma.studio.findMany({
         where: {
             id : { in: ids }

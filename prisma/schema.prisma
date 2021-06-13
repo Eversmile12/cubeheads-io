@@ -24,7 +24,7 @@ model job {
 
 model studio {
   id Int @id @default(autoincrement())
-  studioName     String  @map("studio_name")
+  studioName     String?  @map("studio_name")
   studioWebsite  String? @map("studio_website")
   studioLocation String? @map("studio_location")
   studioLogo String? @map("studio_logo")
