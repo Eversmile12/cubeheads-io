@@ -8,6 +8,11 @@ const SubmitButton = styled.div`
     padding: 1rem 1.5rem;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+    @media screen and (max-width: 667px) {
+        width: 45%;
+        padding: 1rem .7rem;
+        
+    }
 `
 
 const NavButton = styled.button`
@@ -30,12 +35,15 @@ const FilterButton = styled.button`
     font-size: 1.3rem;
     background:  #0E1526;
     color: #FFFFFA;
-    width: 31rem;
+    width: 80%;
     font-weight: 600;
     padding: .8rem 2rem;
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    @media screen and (max-width: 667px) {
+        width: 100%;
+    }
 `
 
 const MainButton = styled.a`

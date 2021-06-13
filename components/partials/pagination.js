@@ -51,6 +51,7 @@ const PaginationContainer = styled.div `
 const PagesWrapper = styled.div`
     background: #0E1526;
     padding: 1rem 3rem;
+    width: 50%;
 `;
 
 

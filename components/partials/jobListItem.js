@@ -3,8 +3,12 @@ import styled from "styled-components"
 
 
 const JobListContainer = styled.div`
-  width: 70rem;
+  width: 70%;
   margin: 4rem auto;
+  @media screen and (max-width: 1024px) {
+      width: 100%;
+  }
+ 
 `
 
 const ListItemContainer = styled.li`
@@ -18,8 +22,30 @@ const ListItemContainer = styled.li`
     :not(last-child){
         margin-bottom: 1rem;
     }
-
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
     
+`
+
+
+const TextContainer = styled.div`
+    padding: 0 1rem;
+    margin: 2rem 0 2rem 0;
+    text-align: justify;
+  
+ 
+`
+
+const ImageContainer = styled.div`
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      background-color: #0E1526;
+      padding: 1rem
+  }
+ 
 `
 const JobTitle = styled.h3`
     font-size: 1.6rem;
@@ -34,13 +60,27 @@ const JobInfo = styled.p`
 const JobDescription = styled.p`
     font-size: 1.4rem;
     text-align: justify
+
+    
 `
+const StudioLogo = styled.img`
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+
+   
+`
+
 
 export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo, studioId}){
     return(
         <ListItemContainer key={keyValue}>
-            <img className="mr-s" src={studioLogo} width="150" height="150"></img>
-            <div className="mr-m">
+            <ImageContainer >
+                <StudioLogo src={studioLogo}></StudioLogo>
+            </ImageContainer>
+            
+            <TextContainer className="mr-m">
                 <div >
                     <JobTitle>{jobRole}</JobTitle>
                     <a href={"/studios/" + studioId }><JobInfo>{studio}</JobInfo></a>
@@ -48,7 +88,7 @@ export default function JobListItem({keyValue ,jobRole, jobLocation, studio, job
                 </div>
                 <JobDescription>{jobDescription.substring(0,150)}.. </JobDescription>
             
-            </div>
+            </TextContainer>
                 <MainButton href={"/jobs/" + keyValue}>Learn More</MainButton>
         </ListItemContainer>
     )

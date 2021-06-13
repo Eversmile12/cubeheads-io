@@ -9,7 +9,7 @@ import {
 
 
 const httpLink = createHttpLink({
-  uri: "https://cubeheads.io/api/graphql",
+  uri: "http://localhost:3000/api/graphql",
 
 })
 

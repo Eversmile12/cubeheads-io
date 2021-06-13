@@ -87,11 +87,17 @@ p.x-small{
 }
 
 
+.l-round { 
+  border-radius: 4px 0 0 4px;
+}
+
+.r-round { 
+  border-radius: 0 4px 4px 0;
+}
 
 
 .error{
-  border: 3px solid #ff4e48f3 !important;
-  padding-left: .3rem;
+  border: 2px solid #ff4e48f3 !important;
   border-radius: 4px;
   max-width: 80%;
 }
@@ -100,16 +106,9 @@ p.x-small{
   font-weight: bold;
 }
 
-@media screen and (max-width: 1200px){
-  .error{
-    max-width: 50%;
-  }
-}
-
 @media screen and (max-width: 796px){
   .error{
     max-width: 100%;
-    justify-content: ;
   }
 }
 

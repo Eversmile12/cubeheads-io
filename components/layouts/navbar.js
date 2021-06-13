@@ -8,6 +8,10 @@ const NavBar = styled.nav`
     padding: 2rem 5rem;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 728px){
+        padding: 1rem 3rem 1rem 2rem
+    }
 `
 const Logo = styled.img`
     cursor: pointer;

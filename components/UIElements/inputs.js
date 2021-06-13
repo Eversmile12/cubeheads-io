@@ -1,39 +1,67 @@
 import styled from "styled-components"
 
+
+const InputContainer = styled.div`
+    display: inline-block;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width: 667px) {
+        &:first-child{
+            margin-right: 3rem;
+        }
+        width: 100%;
+    }
+   
+
+`
+
+
 const FormInput = styled.input`
+    margin-top: 4rem;
     padding: 1rem;
-    width: 20%;
+    width: 45%;
     border: none;
-    min-width: 30rem;
     background: #fff;
     font-size: 1.3rem;
     :focus{
         outline: none;
     }
-
-    @media (max-width: 768px){
-        width: 100%;
+    @media screen and (max-width: 796px){
+        width: 55%
     }
+
+
+
 `;
 
 const FilterTextInputLabel = styled.label`
     border: 1px solid #E1E1E1;
-    padding: .75rem;
+    padding: 1rem .7rem;
     font-size: 1.2rem;
     font-weight: 600;
     border-radius:  4px 0 0 4px;
-    width: 5rem;
+    display: inline-block;
+    width: 13%;
+
+    @media screen and (max-width: 1220px ){
+        width: 20%
+    }
+    @media screen and (max-width: 860px ){
+        display: none;
+    }
+   
 `
 
 const FilterTextInputPartial = styled.input`
-    padding: .75rem;
+    padding: 1rem;
     border-radius: 0 4px 4px 0;
     border: 1px solid #E1E1E1;
     border-left: 0;
     font-size: 1.2rem;
     font-weight: 600;
     color: #48424F;
-    width: 25rem;
+    width: 67%;
     :focus{
         outline: none;
     }
@@ -41,16 +69,30 @@ const FilterTextInputPartial = styled.input`
         color: rgba(72,66,79,.5);
     }
 
+    @media screen and (max-width: 1220px ){
+        width: 60%
+    }
+    @media screen and (max-width: 860px ){
+        width: 80%;
+        border: 1px solid #E1E1E1;
+        border-radius: 4px;
+    }
+    
+    @media screen and (max-width: 667px) {
+        width:100%;
+    }
+
+}
+
+
 
 `
 
-
 const FilterDropDownPartial = styled.select`
     padding: .7rem;
-    width: 30rem;
     border: 1px solid #E1E1E1;
     border-radius: 4px;
-
+    width: 80%;
     :focus{
         outline: none;
     }
@@ -58,12 +100,12 @@ const FilterDropDownPartial = styled.select`
 
 function FilterTextInput({placeholder, context, value, onChangeHandler, className }){
     return(
-        <div style={{"display" : "inline-block"}}>
+        <InputContainer className={className}>
             <FilterTextInputLabel >
                 {context}
             </FilterTextInputLabel> 
-            <FilterTextInputPartial className={className} onChange={onChangeHandler} value={value} placeholder={placeholder}></FilterTextInputPartial>
-        </div>
+            <FilterTextInputPartial onChange={onChangeHandler} value={value} placeholder={placeholder}></FilterTextInputPartial>
+        </InputContainer>
         
         
     )
@@ -73,13 +115,16 @@ function FilterTextInput({placeholder, context, value, onChangeHandler, classNam
 
 function FilterDropDown({className}){
     return (
-        <FilterDropDownPartial defaultValue = "Location" className={className}>
-            <option value="Location" disabled>Location</option>        
-            <option value="placeholder">placeholder</option>
-            <option value="placeholder">placeholder</option>
-            <option value="placeholder">placeholder</option>
-        </FilterDropDownPartial>
+        <InputContainer className={className}>
+            <FilterDropDownPartial defaultValue = "Location" >
+                <option value="Location" disabled>Location</option>        
+                <option value="placeholder">placeholder</option>
+                <option value="placeholder">placeholder</option>
+                <option value="placeholder">placeholder</option>
+            </FilterDropDownPartial>
+        </InputContainer>
+       
     )
 }
 
-export { FormInput, FilterTextInput, FilterDropDown };
+export { FormInput, FilterTextInput, FilterDropDown, InputContainer };

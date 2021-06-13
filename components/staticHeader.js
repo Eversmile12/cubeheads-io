@@ -11,7 +11,7 @@ export default function StaticHeader({props}){
                 <p style={{"line-height" : "2em"}}>Receive stunning game dev jobs in wonderful studios.<br></br>Directly to your inbox <strong>once a week.</strong></p>
                 <SubscribeForm></SubscribeForm>
             </div>
-            <div>
+            <div className={styles.imgContainer}>
                 <img className={styles.headerImage} src="/header-image.svg"></img>
             </div>
         </div>

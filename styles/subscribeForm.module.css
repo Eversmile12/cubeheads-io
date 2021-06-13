@@ -1,31 +1,26 @@
-.wrapper{
-    display: flex;
-    position: relative;
-    flex-direction: row;
-    align-items: center;
-    background-color: #0E1526;
-    color: #fffffa;
-    height: 70vh;
-    overflow: hidden;
-    padding: 0 20rem;
+.subscribeFormWrapper{
+    width: 85%;
+
+   
 }
 
-.textContainer{
-    width: 60%;
-    margin-right: 3rem;
-}
-
-.headerImage{
-    object-fit: contain;
-    position: absolute;
-    bottom: 0;
-    right: 2%;
-    width: 68rem;
-    height: 60rem;
-
+@media screen and (max-width: 796px){
+    .subscribeFormWrapper{
+        width: 100%;
     
+       
+    }
 }
 
+
+.message{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+
+
+/* 
 @media screen and (max-width: 1200px) {
     .wrapper{
         padding: 0 15rem;
@@ -58,12 +53,12 @@
         margin-right: 0;
     }
 
-}
+} */
 
 @media screen and (max-width: 667px) {
 
-    .textContainer{
-        width: 100%;
+    .emailInput { 
+        width: 10%;
     }
 
 }

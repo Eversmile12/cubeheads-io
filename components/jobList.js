@@ -4,7 +4,7 @@ import { useLazyQuery } from "@apollo/client"
 import JobListItem, { JobListContainer} from "./partials/jobListItem"
 import Pagination from "./partials/pagination"
 import { GET_ALL_JOBS_AND_COUNT } from "../pages/api/graphql/queries/queries"
-
+import SubscribeForm from "./subscribeForm"
 
 
 
