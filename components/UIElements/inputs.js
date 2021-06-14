@@ -29,7 +29,7 @@ const FormInput = styled.input`
         outline: none;
     }
     @media screen and (max-width: 796px){
-        width: 55%
+        width: 50%
     }
 
 
@@ -47,9 +47,6 @@ const FilterTextInputLabel = styled.label`
 
     @media screen and (max-width: 1220px ){
         width: 20%
-    }
-    @media screen and (max-width: 860px ){
-        width: 15%
     }
    
 `

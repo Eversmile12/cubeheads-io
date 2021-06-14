@@ -10,8 +10,14 @@ const FiltersContainer = styled.div`
 const FiltersRow = styled.div`
     display: flex;
     justify-content: center;
-    @media screen and (max-width: 860px ){
+    :not(:last-child){
+        margin-bottom: 2rem;
+    }
+    @media screen and (max-width: 670px ){
         flex-direction: column;
+        :not(:last-child){
+        margin-bottom: 0rem;
+    }
     }
 
 }
@@ -20,7 +26,7 @@ const FiltersRow = styled.div`
 export default function FilterBox(props){
     return(
         <FiltersContainer>
-            <FiltersRow className="mb-m">
+            <FiltersRow >
                 <FilterTextInput context="What:" placeholder="texture artist, rigger, environment" onChangeHandler={props.roleChangeHandler} value = {props.jobTitle}></FilterTextInput>
                 <FilterTextInput  context="Where:" placeholder="Toronto, Oslo, Manchester" onChangeHandler={props.locationChangeHandler} value={props.jobLocation} ></FilterTextInput>
             </FiltersRow>
