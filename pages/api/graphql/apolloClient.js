@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
     credentials: 'include'
   })
 const client = new ApolloClient({
-    uri: "https://www.cubeheads.io/api/graphql",
+    link: httpLink,
     cache: new InMemoryCache(),
 })
 
