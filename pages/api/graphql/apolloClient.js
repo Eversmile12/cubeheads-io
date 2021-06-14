@@ -14,7 +14,7 @@ const defaultOptions = {
   
   })
 const client = new ApolloClient({
-    link: httpLink,
+    uri: "https://www.cubeheads.io/api/graphql",
     cache: new InMemoryCache(),
     defaultOptions: defaultOptions
 })
