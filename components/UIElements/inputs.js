@@ -29,7 +29,7 @@ const FormInput = styled.input`
         outline: none;
     }
     @media screen and (max-width: 796px){
-        width: 50%
+        width: 52%
     }
 
 

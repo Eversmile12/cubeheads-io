@@ -39,7 +39,7 @@ const TextContainer = styled.div`
  
 `
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.a`
     @media screen and (max-width: 1024px) {
       width: 100%;
       background-color: #0E1526;
@@ -76,9 +76,10 @@ const StudioLogo = styled.img`
 export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo, studioId}){
     return(
         <ListItemContainer key={keyValue}>
-            <ImageContainer >
+            <ImageContainer href={"/jobs/" + keyValue}>
                 <StudioLogo src={studioLogo}></StudioLogo>
             </ImageContainer>
+          
             
             <TextContainer className="mr-m">
                 <div >

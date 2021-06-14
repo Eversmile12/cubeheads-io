@@ -5,9 +5,9 @@ const XlHeader = styled.h1`
     letter-spacing: 2px;
     color: #FF305E;
     @media (max-width: 768px){
-        font-size: 3rem;
+        font-size: 3.5rem;
         max-width: 90%;
-        margin-bottom: 4rem
+        margin-bottom: 2rem
     }
      
 `;

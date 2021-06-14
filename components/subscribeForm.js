@@ -69,7 +69,7 @@ const SubscribeForm = () => {
                 </div>
                 
                 :
-                <form className="mt-m">
+                <form className="mt-s">
                 <FormInput type="email" style={{"border-radius" : "4px 0 0 4px "}} className={hasError == "EMAIL" && "error"} placeholder="Email" onChange={handleEmailChange}></FormInput>
                 
                 <SubmitButton type="submit" onClick={handleSubmit}>Keep me updated</SubmitButton>              
