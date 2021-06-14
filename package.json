@@ -15,7 +15,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.43",
     "@prisma/client": "^2.23.0",
     "apollo-server": "^2.25.0",
-    "apollo-server-micro": "^2.25.0",
+    "apollo-server-micro": "^2.25.1",
     "axios": "^0.21.1",
     "dataloader": "^2.0.0",
     "dotenv": "^10.0.0",
