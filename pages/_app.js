@@ -24,7 +24,7 @@ const httpLink = createHttpLink({
 })
 
 const client = new ApolloClient({
-  link: httpLink,
+  uri: "https://cubeheads.io/api/graphql",
   cache: new InMemoryCache(),
   defaultOptions: defaultOptions
 })
