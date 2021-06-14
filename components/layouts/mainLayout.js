@@ -7,6 +7,7 @@ const LandingPageLayout = ({children}) => {
         <div className="wrapper">
             <Head>
                 <link rel="icon" href="/logo-type-black.png"></link>
+                <script defer data-domain="cubeheads.io" src="https://plausible.io/js/plausible.js"></script>
             </Head>
             <Navbar></Navbar>
                 {children}
