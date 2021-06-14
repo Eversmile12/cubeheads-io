@@ -26,7 +26,7 @@ model studio {
   studioName     String?  @map("studio_name")
   studioWebsite  String? @map("studio_website")
   studioLocation String? @map("studio_location")
-  studioLogo String? @map("studio_logo")
+  studioLogo     String? @map("studio_logo")
   job            job[]
   @@map("studios")
 }
