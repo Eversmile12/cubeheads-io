@@ -8,25 +8,15 @@ import {
   DefaultOptions
 } from '@apollo/client'
 
-const defaultOptions = {
-  watchQuery: {
-    fetchPolicy: 'no-cache',
-    errorPolicy: 'ignore',
-  },
-  query: {
-    fetchPolicy: 'no-cache',
-    errorPolicy: 'all',
-  },
-}
 const httpLink = createHttpLink({
   uri: "https://www.cubeheads.io/api/graphql",
-
+  credentials: 'include'
 })
 
 const client = new ApolloClient({
-  uri: "https://www.cubeheads.io/api/graphql",
+  uri: httpLink,
   cache: new InMemoryCache(),
-  defaultOptions: defaultOptions
+  
 })
 
 function MyApp({ Component, pageProps }) {
