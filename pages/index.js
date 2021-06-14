@@ -9,20 +9,7 @@ export async function getStaticProps(){
       query: GET_ALL_JOBS_AND_COUNT,
     })
 
-    // const req = await fetch("http://localhost:3000/api/graphql", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type' : "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         "query" : GET_ALL_JOBS_AND_COUNT
-    //     }),
-    // })
-    // const json = await req.json()
-    // if (json.errors) {
-    //     console.error(json.errors)
-    //     throw new Error('Failed to fetch API')
-    // }
+  
   return {
     props:{
       jobs: data.jobs,
