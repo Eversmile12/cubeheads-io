@@ -56,7 +56,7 @@ import SubscribeForm from "./subscribeForm"
               {jobProp && jobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
               {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
             </ul>
-            <Pagination startingPage={1} lastPageValue = {7} firstPageValue ={1} totalItems={totalJobs} perPage={8} onClickHandler={queryJobs}></Pagination>
+            <Pagination startingPage={1} lastPageValue = {11} firstPageValue ={1} totalItems={totalJobs} perPage={8} onClickHandler={queryJobs}></Pagination>
           </JobListContainer>
         </div>
           

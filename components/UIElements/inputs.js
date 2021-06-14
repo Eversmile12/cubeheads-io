@@ -111,6 +111,19 @@ function FilterTextInput({placeholder, context, value, onChangeHandler, classNam
     )
 }
 
+function FilterDisabledInput({placeholder, context, value, onChangeHandler, className }){
+    return(
+        <InputContainer className={className}>
+            <FilterTextInputLabel   >
+                {context}
+            </FilterTextInputLabel> 
+            <FilterTextInputPartial className="disabled" disabled onChange={onChangeHandler} value={value} placeholder={placeholder}></FilterTextInputPartial>
+        </InputContainer>
+        
+        
+    )
+}
+
 
 
 function FilterDropDown({className}){
@@ -127,4 +140,4 @@ function FilterDropDown({className}){
     )
 }
 
-export { FormInput, FilterTextInput, FilterDropDown, InputContainer };
+export { FormInput, FilterTextInput, FilterDisabledInput, InputContainer };

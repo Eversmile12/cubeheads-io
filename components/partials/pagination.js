@@ -23,6 +23,13 @@ const PaginationItem = styled.a`
         color: #FFFFFA;
     }
 
+    @media screen and (max-width: 870px ){
+        :not(:last-child){
+            margin-right: .7rem;
+        }
+    }
+ 
+
 `;
 
 const PaginationButton = styled.button`
@@ -39,6 +46,13 @@ const PaginationButton = styled.button`
     :hover{
         opacity:.7
     }
+
+    @media screen and (max-width: 677px ){
+        width: 50%;
+        :last-child{
+            border-left: 2px solid #FFFFFA;
+        }
+    }
 `;
 
 const PaginationContainer = styled.div `
@@ -51,7 +65,9 @@ const PaginationContainer = styled.div `
 const PagesWrapper = styled.div`
     background: #0E1526;
     padding: 1rem 3rem;
-    width: 50%;
+    @media screen and (max-width: 677px ){
+        display: none;
+    }
 `;
 
 
@@ -82,7 +98,7 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
             }
         }else{
             setFirstPage(1)
-            setLastPage(7)
+            setLastPage(6)
             
         }
     }, [currentPage])
@@ -105,7 +121,7 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
             
         }else if(page == 1){
             setFirstPage(page)
-            const newLastPage = perPage > numOfPages ? numOfPages : 7
+            const newLastPage = page > numOfPages ? numOfPages : 7
             setLastPage(newLastPage)
             
         }else if(page == numOfPages){
@@ -125,7 +141,7 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
     console.log("Current page", currentPage)
 
     const pages = []
-    for(let i = firstPage; i <= lastPage; i++){
+    for(let i = firstPage; i < lastPage; i++){
         if(i != 1 && i !=numOfPages ){
             if(i > numOfPages){
                 break

@@ -10,7 +10,7 @@ import {
 
 const httpLink = createHttpLink({
   uri: "https://www.cubeheads.io/api/graphql",
-  credentials: 'include'
+  credentials: 'include',
 })
 
 const client = new ApolloClient({

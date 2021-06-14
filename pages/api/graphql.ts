@@ -5,7 +5,7 @@ import { context } from "./graphql/context"
 import { typeDefs } from "./graphql/typeDefs"
 
 const cors = Cors({
-    origin: ['https://www.cubeheads.io/']
+    origin: ("https://www.cubeheads.io/api/graphql")
 })
 const server = new ApolloServer({typeDefs, resolvers, context})
 

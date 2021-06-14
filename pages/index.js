@@ -19,6 +19,7 @@ export async function getStaticProps(){
 }
 
 export default function Home({jobs, retrievedJobCount}){
+  console.log(process.env.DOMAIN_URL)
     return (
         <div>
         <StaticHeader></StaticHeader>
