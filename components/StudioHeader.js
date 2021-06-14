@@ -48,7 +48,7 @@ export default function StudioHeader({title, logo, studioName, studioId, locatio
 
                 <TitleHeader>{title}</TitleHeader>
                 <div>
-                    <FontAwesomeIcon className="mr-s" style={{"color" : "#FF305E", "opacity" : ".65", "display" : "inline-block"}} icon={faMapMarkerAlt}></FontAwesomeIcon>
+                    {/* <FontAwesomeIcon className="mr-s" style={{"color" : "#FF305E", "opacity" : ".65", "display" : "inline-block"}} size="sm" icon={faMapMarkerAlt}></FontAwesomeIcon> */}
                     <p style={{"display" : "inline-block"}}>{location}</p>
                 </div>
                

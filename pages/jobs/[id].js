@@ -3,7 +3,7 @@ import StudioHeader from "../../components/StudioHeader"
 import { CTAButton } from "../../components/UIElements/buttons"
 import client from "../api/graphql/apolloClient"
 import {GET_JOBS_BY_ID , GET_ALL_JOBS_IDS} from "../api/graphql/queries/queries"
-
+import Head from "next/head"
 
 
 export const getStaticPaths = async () => {
@@ -36,6 +36,7 @@ export const getStaticProps = async (context) =>{
     console.log(data)
     return{
         props:{ 
+            id: idValue,
             jobTitle: data.job.job_title,
             studioId: data.job.studio_id.id,
             studioName: data.job.studio_id.studio_name,
@@ -49,9 +50,24 @@ export const getStaticProps = async (context) =>{
 }
 
 
-export default function jobDetails({studioName, studioLogo, jobTitle, jobDescription, jobUrl, studioId, jobLocation}){
+export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDescription, jobUrl, studioId, jobLocation}){
     return(
+        
         <div>
+            <Head>
+                <title>{jobTitle + " - " + studioName}</title>
+                <meta property="og:title" content={jobTitle + "-" + studioName}></meta>
+                <meta property="og:description" content={jobDescription.join(" ").substring(0,150)}></meta>
+                <meta property="og:image" content={studioLogo}></meta>
+                <meta property="og:url" content={"https://cubeheads.io/jobs" + id}></meta>
+                <meta property="og:type" content="job"></meta>
+                <meta name="twitter:card" content="summary_large_image"></meta>
+                <meta name="description" content={jobDescription.toString().substring(0, 150)}></meta>
+                <meta name="robots" content="index, follow"></meta>
+                <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+                <meta name="twitter:site" content="@CubeheadsI"></meta>
+                <meta name="twitter:creator" content="@CubeheadsI"></meta>
+            </Head>
             <StudioHeader studioId = {studioId} studioName = {studioName} logo = {studioLogo} title ={jobTitle} location = {jobLocation} ></StudioHeader>
             <JobPageContainer>
                 <h2 className="mb-m">Description:</h2>
