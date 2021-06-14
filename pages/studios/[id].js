@@ -5,7 +5,9 @@ import JobListItem, { JobListContainer} from "../../components/partials/jobListI
 
 export const getStaticPaths = async () => {
     const { data } = await client.query({query : GET_ALL_STUDIOS_IDS}) 
-
+    if(data){
+        
+    }
     const paths = data.studios.map(studio => 
         {
             return {params : {id : studio.id.toString()}}

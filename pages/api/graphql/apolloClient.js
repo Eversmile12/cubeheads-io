@@ -9,8 +9,12 @@ const defaultOptions = {
       errorPolicy: 'all',
     },
   }
-const client = new ApolloClient({
+  const httpLink = createHttpLink({
     uri: "https://cubeheads.io/api/graphql",
+  
+  })
+const client = new ApolloClient({
+    link: "https://cubeheads.io/api/graphql",
     cache: new InMemoryCache(),
     defaultOptions: defaultOptions
 })
