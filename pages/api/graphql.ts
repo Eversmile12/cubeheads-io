@@ -5,7 +5,7 @@ import { context } from "./graphql/context"
 import { typeDefs } from "./graphql/typeDefs"
 
 const cors = Cors({
-    origin: "https://cubeheads-git-development-eversmile12.vercel.app/"
+    origin: "https://cubeheads-git-development-eversmile12.vercel.app"
 })
 const server = new ApolloServer({typeDefs, resolvers, context})
 

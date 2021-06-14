@@ -10,7 +10,7 @@ const Container = styled.div`
     line-height: 1.8em;
 
     @media screen and (max-width: 670px){
-        width: 100%;
+        width: 80%;
     }
 `
 
