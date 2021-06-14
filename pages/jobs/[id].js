@@ -43,7 +43,7 @@ export const getStaticProps = async (context) =>{
             jobDescription: data.job.job_description.split("\n"),
             jobUrl: data.job.job_url,
             jobLocation: data.job.job_location
-        }
+        }, revalidate: 10
     }
 
 }

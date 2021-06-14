@@ -14,7 +14,7 @@ export async function getStaticProps(){
     props:{
       jobs: data.jobs,
       retrievedJobCount: data.jobs_count
-    },
+    }, revalidate: 10
   }
 }
 

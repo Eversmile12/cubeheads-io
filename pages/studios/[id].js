@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
 
 
 
-export const getStaticProps = async(context) => {
+export const getServerSideProps = async(context) => {
     const studioId = context.params.id
     console.log(studioId)
 
@@ -48,7 +48,7 @@ export const getStaticProps = async(context) => {
             studioLogo: data.studio.studio_logo,
             studioLocation: data.studio.studio_location,
             jobs: jobs.data.jobs
-        }
+        }, revalidate: 10
     }
 }
 
