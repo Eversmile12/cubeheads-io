@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
 
 
 
-export const getServerSideProps = async(context) => {
+export const getStaticProps = async(context) => {
     const studioId = context.params.id
     console.log(studioId)
 

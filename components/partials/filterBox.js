@@ -10,6 +10,9 @@ const FiltersContainer = styled.div`
 const FiltersRow = styled.div`
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 860px ){
+        flex-direction: column;
+    }
 
 }
 `

@@ -11,6 +11,7 @@ const InputContainer = styled.div`
             margin-right: 3rem;
         }
         width: 100%;
+        margin-top: 1rem;
     }
    
 
@@ -48,7 +49,7 @@ const FilterTextInputLabel = styled.label`
         width: 20%
     }
     @media screen and (max-width: 860px ){
-        display: none;
+        width: 15%
     }
    
 `
@@ -74,8 +75,6 @@ const FilterTextInputPartial = styled.input`
     }
     @media screen and (max-width: 860px ){
         width: 80%;
-        border: 1px solid #E1E1E1;
-        border-radius: 4px;
     }
     
     @media screen and (max-width: 667px) {
