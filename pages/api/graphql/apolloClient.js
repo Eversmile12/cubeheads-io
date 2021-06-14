@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 const defaultOptions = {
     watchQuery: {
       fetchPolicy: 'no-cache',
@@ -14,7 +14,7 @@ const defaultOptions = {
   
   })
 const client = new ApolloClient({
-    link: "https://cubeheads.io/api/graphql",
+    link: httpLink,
     cache: new InMemoryCache(),
     defaultOptions: defaultOptions
 })
