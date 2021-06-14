@@ -8,6 +8,10 @@ const Container = styled.div`
     background: linear-gradient(180deg, #FCFCFC 0%, rgba(252, 252, 252, 0) 100%);
     text-align: justify;
     line-height: 1.8em;
+
+    @media screen and (max-width: 670px){
+        width: 100%;
+    }
 `
 
 export default function JobPageContainer({children}){
