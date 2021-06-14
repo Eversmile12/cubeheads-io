@@ -19,7 +19,7 @@ const defaultOptions = {
   },
 }
 const httpLink = createHttpLink({
-  uri: "https://cubeheads.io/api/graphql",
+  uri: "https://www.cubeheads.io/api/graphql",
 
 })
 
