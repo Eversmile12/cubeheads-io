@@ -43,7 +43,7 @@ export default function StudioHeader({title, logo, studioName, studioId, locatio
     return (
         <StudioHeaderContainer>
                 <ImageContainer>
-                    <a href={"/studios/" + studioId}><img alt={studioName + " logo"} src={logo} width="150" height="150"></img></a>
+                    <a href={studioId && ("/studios/" + studioId)}><img alt={studioName + " logo"} src={logo} width="150" height="150"></img></a>
                 </ImageContainer>
 
                 <TitleHeader>{title}</TitleHeader>
