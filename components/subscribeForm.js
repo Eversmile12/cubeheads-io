@@ -74,8 +74,9 @@ const SubscribeForm = () => {
                 
                 <SubmitButton type="submit" onClick={handleSubmit}>Keep me updated</SubmitButton>              
             
-                <div  className={hasError == "CHECKBOX" ? "error" : ""} style ={{"margin-top": "1rem", "width" : "30rem", "padding" : "0 .5rem 0 .5rem" }}>
-                    <input onChange={() => updateCheckBoxIsChecked(!checkboxIsChecked)}   type="checkbox"></input>
+                <div  className={hasError == "CHECKBOX" ? "error" : ""} style ={{"margin-top": "2rem", "width" : "30rem", "padding" : "0 .5rem 0 .5rem" }}>
+                    <label for="privacy-policies" style={{"display" : "none"}}></label>
+                    <input id="privacy-policies" onChange={() => updateCheckBoxIsChecked(!checkboxIsChecked)}   type="checkbox"></input>
                     <p style={{"display": "inline-block", "margin-left" : "1rem"}} className="x-small" > I accept the <Link href="https://www.freeprivacypolicy.com/live/d1da3cc5-c336-437a-b469-fab34d7c3bb0">privacy policies</Link></p>
                 </div> 
                 {

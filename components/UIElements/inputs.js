@@ -14,6 +14,7 @@ const InputContainer = styled.div`
         margin-top: 1rem;
     }
    
+   
 
 `
 
@@ -28,8 +29,9 @@ const FormInput = styled.input`
     :focus{
         outline: none;
     }
-    @media screen and (max-width: 796px){
-        width: 52%
+    @media screen and (max-width: 667px){
+        width: 52%;
+        padding: 1.5rem;
     }
 
 
@@ -110,10 +112,10 @@ function FilterTextInput({placeholder, context, value, onChangeHandler, classNam
 function FilterDisabledInput({placeholder, context, value, onChangeHandler, className }){
     return(
         <InputContainer className={className}>
-            <FilterTextInputLabel   >
+            <FilterTextInputLabel  for={context} >
                 {context}
             </FilterTextInputLabel> 
-            <FilterTextInputPartial className="disabled" disabled onChange={onChangeHandler} value={value} placeholder={placeholder}></FilterTextInputPartial>
+            <FilterTextInputPartial id={context} className="disabled" disabled onChange={onChangeHandler} value={value} placeholder={placeholder}></FilterTextInputPartial>
         </InputContainer>
         
         

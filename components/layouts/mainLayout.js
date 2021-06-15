@@ -4,7 +4,7 @@ import Head from "next/head"
 
 const LandingPageLayout = ({children}) => {
     return (
-        <div className="wrapper">
+        <main className="wrapper">
             <Head>
                 <link rel="icon" href="/logo-type-black.png"></link>
                 <script defer data-domain="cubeheads.io" src="https://plausible.io/js/plausible.js"></script>
@@ -12,7 +12,7 @@ const LandingPageLayout = ({children}) => {
             <Navbar></Navbar>
                 {children}
             <Footer></Footer>
-        </div>
+        </main>
     )
 }
 

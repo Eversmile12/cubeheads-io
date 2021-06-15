@@ -55,13 +55,12 @@ export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDesc
         
         <div>
             <Head>
-                <title>{jobTitle + " - " + studioName}</title>
-                <meta property="og:title" content={jobTitle + "-" + studioName}></meta>
+                <title>{jobTitle + " - " + job_location}</title>
+                <meta property="og:title" content={jobTitle + "-" +  job_location}></meta>
                 <meta property="og:description" content={jobDescription.join(" ").substring(0,150)}></meta>
                 <meta property="og:image" content={studioLogo}></meta>
                 <meta property="og:url" content={"https://cubeheads.io/jobs" + id}></meta>
                 <meta property="og:type" content="job"></meta>
-                <meta name="twitter:card" content="summary_large_image"></meta>
                 <meta name="description" content={jobDescription.toString().substring(0, 150)}></meta>
                 <meta name="robots" content="index, follow"></meta>
                 <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>

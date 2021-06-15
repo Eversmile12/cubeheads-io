@@ -47,13 +47,13 @@ const ImageContainer = styled.a`
   }
  
 `
-const JobTitle = styled.h3`
+const JobTitle = styled.h2`
     font-size: 1.6rem;
 `
 
 const JobInfo = styled.p`
     font-size: 1.3rem;
-    color: rgba(72, 66, 79, 0.7);
+    color: rgba(72, 66, 79, 0.9);
     font-weight: 600;
 `
 
@@ -77,7 +77,7 @@ export default function JobListItem({keyValue ,jobRole, jobLocation, studio, job
     return(
         <ListItemContainer key={keyValue}>
             <ImageContainer href={"/jobs/" + keyValue}>
-                <StudioLogo src={studioLogo}></StudioLogo>
+                <StudioLogo alt={studio + " logo"} src={studioLogo}></StudioLogo>
             </ImageContainer>
           
             

@@ -12,7 +12,7 @@ export default function StaticHeader({props}){
                 <SubscribeForm></SubscribeForm>
             </div>
             <div className={styles.imgContainer}>
-                <img className={styles.headerImage} src="/header-image.svg"></img>
+                <img className={styles.headerImage} alt="Image with a 3D hand that says ok" src="/header-image.svg"></img>
             </div>
         </div>
     )

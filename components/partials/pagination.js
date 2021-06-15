@@ -156,8 +156,8 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
         <PaginationContainer>
             <PaginationButton onClick={() => {changePage(currentPage-1)}}> Prev </PaginationButton>
                 <PagesWrapper>
-                    <PaginationItem key={1} onClick={() => changePage(1)} className={1 == currentPage ? "current" : ""}>{1}</PaginationItem>
-                        {pages.map(page => <PaginationItem key={page} onClick={() => changePage(page)} className={page == currentPage ? "current" : ""}>{page}</PaginationItem>)}
+                    <PaginationItem href={"#" + 1} key={1} onClick={() => changePage(1)} className={1 == currentPage ? "current" : ""}>{1}</PaginationItem>
+                        {pages.map(page => <PaginationItem  href={"#" + page} key={page} onClick={() => changePage(page)} className={page == currentPage ? "current" : ""}>{page}</PaginationItem>)}
                     { firstPage != numOfPages && numOfPages != 0 ?  <PaginationItem key={numOfPages} onClick={() => changePage(numOfPages)} className={numOfPages == currentPage ? "current" : ""}>{numOfPages}</PaginationItem> : null}
                 </PagesWrapper>
             <PaginationButton onClick={() => {changePage(currentPage+1)}}> Next </PaginationButton>

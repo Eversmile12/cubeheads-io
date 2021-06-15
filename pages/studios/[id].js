@@ -43,6 +43,7 @@ export const getStaticProps = async(context) => {
 
     return{
         props:{
+            studioId: studioId,
             studioName: data.studio.studio_name,
             studioWebsite: data.studio.studio_website,
             studioLogo: data.studio.studio_logo,
@@ -53,10 +54,23 @@ export const getStaticProps = async(context) => {
 }
 
 
-export default function studioDetails({studioName, studioWebsite, studioLogo, jobs, studioLocation}){
+export default function studioDetails({studioId, studioName, studioWebsite, studioLogo, jobs, studioLocation}){
     console.log(jobs)
     return (
         <div>
+            <Head>
+                <title>{studioName + "Game dev jobs"}</title>
+                <meta property="og:title" content={studioName - "Game dev jobs"}></meta>
+                <meta property="og:description" content={studio_name + " is hiring! Checkout our stunning game dev jobs, and worldwide game programmer offers. Land your dream studio!"}></meta>
+                <meta property="og:image" content={studioLogo}></meta>
+                <meta property="og:url" content={"https://cubeheads.io/studios" + studioId}></meta>
+                <meta property="og:type" content="jobs"></meta>
+                <meta name="description" content={studio_name + " is hiring! Checkout our stunning game dev jobs, and worldwide game programmer offers. Land your dream studio!"}></meta>
+                <meta name="robots" content="index, follow"></meta>
+                <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+                <meta name="twitter:site" content="@CubeheadsI"></meta>
+                <meta name="twitter:creator" content="@CubeheadsI"></meta>
+            </Head>
             <StudioHeader title = {studioName} logo = {studioLogo} location ={studioLocation}  ></StudioHeader>
             <StandardContentContainer>
                 <JobListContainer >

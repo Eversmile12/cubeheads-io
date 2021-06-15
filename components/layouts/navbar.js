@@ -23,7 +23,7 @@ export const Navbar = () => {
         <header>
             <NavBar>
                 <div className="nav-logo">
-                    <Link href="/"><Logo src="/logo-full-black.png" width="125" height="29"></Logo></Link>
+                    <Link href="/"><Logo alt="cubeheads logo" src="/logo-full-black.png" width="125" height="29"></Logo></Link>
                 </div>
                 <div>
                     {/* <ul style={{"display" : "inline-block"}}>

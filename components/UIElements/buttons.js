@@ -10,7 +10,7 @@ const SubmitButton = styled.div`
     cursor: pointer;
     @media screen and (max-width: 667px) {
 
-        padding: 1rem .8rem;
+        padding: 1.5rem .8rem;
         
     }
 `
