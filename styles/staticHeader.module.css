@@ -6,6 +6,7 @@
     background-color: #0E1526;
     color: #fffffa;
     height: 70vh;
+    min-height: 50rem;
     overflow: hidden;
     padding: 0 20rem;
 }
