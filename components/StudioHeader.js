@@ -12,6 +12,7 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 const StudioHeaderContainer = styled.div`
     background: #0E1526;
     height: 60vh;
+    min-height: 38rem;
     color: #FFFFFA;
     display: flex;
     flex-direction: column;

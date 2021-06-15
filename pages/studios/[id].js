@@ -3,6 +3,7 @@ import { GET_STUDIO_BY_ID, GET_ALL_STUDIOS_IDS, GET_JOBS_BY_STUDIO} from "../api
 import StudioHeader from "../../components/StudioHeader"
 import JobListItem, { JobListContainer} from "../../components/partials/jobListItem"
 import StandardContentContainer from "../../components/layouts/standardContentContainer"
+import Breadcrubms from "../../components/breadcrumbs"
 import Head from "next/head"
 export const getStaticPaths = async () => {
     const { data } = await client.query({query : GET_ALL_STUDIOS_IDS}) 
@@ -73,10 +74,14 @@ export default function studioDetails({studioId, studioName, studioWebsite, stud
             <StudioHeader  title = {studioName} logo = {studioLogo} location ={studioLocation}  ></StudioHeader>
             <StandardContentContainer>
                 <JobListContainer >
+                <Breadcrubms studio={studioName} studioId={studioId}></Breadcrubms>
+                <div>
                     <p>Jobs found: {jobs.length}</p>
                     <ul>
-                    {jobs && jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {studioName} studioLogo = {studioLogo} jobLocation = {job.job_location}  jobDescription = {job.job_description}></JobListItem>)}
+                        {jobs && jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {studioName} studioLogo = {studioLogo} jobLocation = {job.job_location}  jobDescription = {job.job_description}></JobListItem>)}
                     </ul>
+                </div>
+                   
                 </JobListContainer>
             </StandardContentContainer>
             

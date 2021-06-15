@@ -9,7 +9,7 @@ import {
 } from '@apollo/client'
 
 const httpLink = createHttpLink({
-  uri: "https://www.cubeheads.io/api/graphql",
+  uri: "http://localhost:3000/api/graphql",
   credentials: 'include',
 })
 
