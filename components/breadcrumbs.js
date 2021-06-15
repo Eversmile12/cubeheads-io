@@ -33,7 +33,7 @@ const BreadcrumbsItem = styled.a`
 export default function Breadcrubms({studio,studioId, job, jobId}){
     return (
     <BreadcrumbsContainer>
-        <BreadcrumbsItem href="/">home</BreadcrumbsItem> {studio ? <span>/ <BreadcrumbsItem href={"/studios/" + studioId}>{studio}</BreadcrumbsItem></span> : ""} {job ? <span>/<BreadcrumbsItem href={"/job/"+ jobId }>{job}</BreadcrumbsItem></span> : ""}
+        <BreadcrumbsItem href="/">home</BreadcrumbsItem> {studio ? <span>/ <BreadcrumbsItem href={"/studios/" + studioId}>{studio}</BreadcrumbsItem></span> : ""} {job ? <span>/<BreadcrumbsItem href={"/jobs/"+ jobId }>{job}</BreadcrumbsItem></span> : ""}
     </BreadcrumbsContainer>
     )
 }
