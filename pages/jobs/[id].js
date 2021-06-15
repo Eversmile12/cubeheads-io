@@ -55,7 +55,7 @@ export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDesc
         
         <div>
             <Head>
-                <title>{jobTitle + " - " + job_location}</title>
+                <title>{jobTitle + " - " + jobLocation}</title>
                 <meta property="og:title" content={jobTitle + "-" +  job_location}></meta>
                 <meta property="og:description" content={jobDescription.join(" ").substring(0,150)}></meta>
                 <meta property="og:image" content={studioLogo}></meta>
