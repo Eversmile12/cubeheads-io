@@ -3,6 +3,7 @@ import { GET_STUDIO_BY_ID, GET_ALL_STUDIOS_IDS, GET_JOBS_BY_STUDIO} from "../api
 import StudioHeader from "../../components/StudioHeader"
 import JobListItem, { JobListContainer} from "../../components/partials/jobListItem"
 import StandardContentContainer from "../../components/layouts/standardContentContainer"
+import Head from "next/head"
 export const getStaticPaths = async () => {
     const { data } = await client.query({query : GET_ALL_STUDIOS_IDS}) 
 
