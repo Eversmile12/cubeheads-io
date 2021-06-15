@@ -70,7 +70,7 @@ export default function studioDetails({studioId, studioName, studioWebsite, stud
                 <meta name="twitter:site" content="@CubeheadsI"></meta>
                 <meta name="twitter:creator" content="@CubeheadsI"></meta>
             </Head>
-            <StudioHeader title = {studioName} logo = {studioLogo} location ={studioLocation}  ></StudioHeader>
+            <StudioHeader studioId = {studioId} title = {studioName} logo = {studioLogo} location ={studioLocation}  ></StudioHeader>
             <StandardContentContainer>
                 <JobListContainer >
                     <p>Jobs found: {jobs.length}</p>
