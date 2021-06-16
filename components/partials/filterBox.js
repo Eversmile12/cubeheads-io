@@ -31,7 +31,7 @@ export default function FilterBox(props){
                 <FilterTextInput  context="Where:" placeholder="Toronto, Oslo, Manchester" onChangeHandler={props.locationChangeHandler} value={props.jobLocation} ></FilterTextInput>
             </FiltersRow>
             <FiltersRow>
-            {/* <FilterTextInput  context="Studio:" placeholder="Blizzard, Ubisoft, Realworld one" onChangeHandler={props.studioChangeHandler} value={props.studioName}></FilterTextInput> */}
+            <FilterTextInput  context="Studio:" placeholder="Blizzard, Ubisoft, Realworld one" onChangeHandler={props.studioChangeHandler} value={props.studioName}></FilterTextInput>
                <InputContainer> <FilterButton  onClick={() => {props.onSubmitHandler(0)}}>Filter</FilterButton></InputContainer>
             </FiltersRow>
         </FiltersContainer>
