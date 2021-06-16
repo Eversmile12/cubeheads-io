@@ -12,7 +12,7 @@ import SubscribeForm from "./subscribeForm"
     const perPage = 8
     const [jobTitle, updateJobTitle] = React.useState("")
     const [jobLocation, updateJobLocation] = React.useState("")
-    const [studioNameValue, updateStudio] = React.useState("")
+    // const [studioNameValue, updateStudio] = React.useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [jobProps, setJobsProps] = useState(jobs)
     const [onPageJobs, setOnPageJobs] = useState(jobProps.slice(0,perPage))
@@ -51,16 +51,16 @@ import SubscribeForm from "./subscribeForm"
       updateJobLocation(e.target.value)
     }
 
-    function studioChangeHandler(e){
-      updateStudio(e.target.value)
-    }
+    // function studioChangeHandler(e){
+    //   updateStudio(e.target.value)
+    // }
 
     
 
     function queryJobs(offset = 0){
       console.log("Job title: ", jobTitle )
       console.log("job location: ", jobLocation)
-      getJobs({variables: {offset : (offset), role: jobTitle, location: jobLocation, studio: studioNameValue}})
+      // getJobs({variables: {offset : (offset), role: jobTitle, location: jobLocation, studio: studioNameValue}})
       console.log("job location: ", jobLocation)
     }
 
@@ -69,7 +69,7 @@ import SubscribeForm from "./subscribeForm"
       return (
         <div>
           <FilterBox  roleChangeHandler={roleChangeHandler} onSubmitHandler={ queryJobs } jobTitle={jobTitle} 
-          locationChangeHandler={locationChangeHandler} jobLocation={jobLocation} studioChangeHandler={studioChangeHandler} studio={studioNameValue}></FilterBox>
+          locationChangeHandler={locationChangeHandler} jobLocation={jobLocation} ></FilterBox>
           <JobListContainer >
             <p>Jobs found: {totalJobs}</p>
             <ul>
