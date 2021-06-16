@@ -11,19 +11,34 @@ import SubscribeForm from "./subscribeForm"
   export default function JobList({jobs, retrievedJobCount}){
     const [jobTitle, updateJobTitle] = React.useState("")
     const [jobLocation, updateJobLocation] = React.useState("")
-    const [totalJobs, setTotalJobs] = React.useState(retrievedJobCount)
-
+    const [currentPage, setCurrentPage] = useState(1)
+    const [jobProps, setJobsProps] = useState(jobs)
+    const [onPageJobs, setOnPageJobs] = useState(jobProps.slice(0,7))
+    const [totalJobs, setTotalJobs] = useState(jobProps.length)
     const [getJobs, {loading, data }] = useLazyQuery(GET_ALL_JOBS_AND_COUNT)
-    const [queryOffset, setQueryOffset] = useState(0)
-    const [jobProp, setJobsProp] = useState(jobs)
+
+
+
+    useEffect(() => {
+      console.log(currentPage)
+      setOnPageJobs(jobProps.slice((currentPage-1)*7, ((currentPage-1)*7)+7))
+    }, [currentPage])
+
+    useEffect(() => {
+      setOnPageJobs(jobProps.slice(0, (currentPage*7)))
+      setTotalJobs(jobProps.length)
+      setCurrentPage(1)
+    }, [jobProps])
 
 
     useEffect(() => {
       if(data){
-        console.log(data)
-        setTotalJobs(data.jobs_count)
+        console.log(currentPage)
+        setJobsProps(data.jobs);
       }
+      
     }, [data])
+    
 
     function roleChangeHandler(e){
       updateJobTitle(e.target.value)
@@ -34,29 +49,32 @@ import SubscribeForm from "./subscribeForm"
       updateJobLocation(e.target.value)
     }
 
+    
+
     function queryJobs(offset = 0){
       console.log("Job title: ", jobTitle )
       console.log("job location: ", jobLocation)
       getJobs({variables: {offset : (offset), role: jobTitle, location: jobLocation}})
-      console.log(data)
       console.log("job location: ", jobLocation)
-      if(jobProp){
-        setJobsProp()
-      }
     }
 
   
 
       return (
         <div>
-          <FilterBox  roleChangeHandler={roleChangeHandler} onSubmitHandler = { queryJobs }jobTitle={jobTitle} locationChangeHandler={locationChangeHandler} jobLocation={jobLocation}></FilterBox>
+          <FilterBox  roleChangeHandler={roleChangeHandler} onSubmitHandler={ queryJobs } jobTitle={jobTitle} 
+          locationChangeHandler={locationChangeHandler} jobLocation={jobLocation}></FilterBox>
           <JobListContainer >
             <p>Jobs found: {totalJobs}</p>
             <ul>
-              {jobProp && jobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
-              {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)}
+              {
+                onPageJobs && onPageJobs.map(job => <JobListItem keyValue={job.id} jobRole = {job.job_title}
+                jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo}
+                jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)
+              }
+              {/* {data && data.jobs.map(job => <JobListItem keyValue={job.id}  jobRole = {job.job_title} jobLocation = {job.job_location} studio = {job.studio_id.studio_name} studioLogo = {job.studio_id.studio_logo} jobDescription = {job.job_description} studioId = {job.studio_id.id}></JobListItem>)} */}
             </ul>
-            <Pagination startingPage={1} lastPageValue = {11} firstPageValue ={1} totalItems={totalJobs} perPage={8} onClickHandler={queryJobs}></Pagination>
+            <Pagination  totalItems={totalJobs} perPage={8} onClickHandler={setCurrentPage}></Pagination>
           </JobListContainer>
         </div>
           

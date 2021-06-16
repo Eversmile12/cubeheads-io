@@ -20,7 +20,7 @@ const GET_JOBS_BY_ID =gql`
 
 const GET_ALL_JOBS_AND_COUNT =  gql` 
 query($offset : Int, $role: String, $location : String) {
-    jobs(offset:$offset, count:8, roleContains: $role, locationContains: $location){
+    jobs(offset:$offset, roleContains: $role, locationContains: $location){
     id
     job_title
     job_location

@@ -20,6 +20,7 @@ export async function getStaticProps(){
 
 export default function Home({jobs, retrievedJobCount}){
   console.log(process.env.DOMAIN_URL)
+  let randomJobs = jobs.slice().sort(() => Math.random() - 0.5)
     return (
         <div>
           <Head>
@@ -38,7 +39,7 @@ export default function Home({jobs, retrievedJobCount}){
           </Head>
           <StaticHeader></StaticHeader>
           <StandardContentContainer>
-              <JobList jobs={jobs} retrievedJobCount={retrievedJobCount}></JobList>
+              <JobList jobs={randomJobs} retrievedJobCount={retrievedJobCount}></JobList>
           </StandardContentContainer>
             
         </div>

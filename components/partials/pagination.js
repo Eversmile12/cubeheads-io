@@ -73,9 +73,9 @@ const PagesWrapper = styled.div`
 
 
 export default function Pagination({totalItems, perPage, onClickHandler, startingPage, firstPageValue, lastPageValue}){
-    const [currentPage, setCurrentPage] = React.useState(startingPage)
-    const [firstPage, setFirstPage] = React.useState(firstPageValue)
-    const [lastPage, setLastPage] = React.useState(lastPageValue)
+    const [currentPage, setCurrentPage] = React.useState(1)
+    const [firstPage, setFirstPage] = React.useState(1)
+    const [lastPage, setLastPage] = React.useState(7)
     const numOfPages = Math.ceil(totalItems / perPage)
 
 
@@ -96,10 +96,6 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
                 }
                 
             }
-        }else{
-            setFirstPage(1)
-            setLastPage(6)
-            
         }
     }, [currentPage])
 
@@ -132,7 +128,7 @@ export default function Pagination({totalItems, perPage, onClickHandler, startin
         }
         const offset = page-1 >= 1 ? (page-1)*perPage : 0
         console.log("offset" , page-1*perPage, page, perPage)
-        onClickHandler(offset)
+        onClickHandler(page)
         setCurrentPage(page);
     }
     console.log("Total page: ", numOfPages)

@@ -70,7 +70,7 @@ export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDesc
             </Head>
             <StudioHeader studioId = {studioId} studioName = {studioName} logo = {studioLogo} title ={jobTitle} location = {jobLocation} ></StudioHeader>
             <JobPageContainer>
-                <Breadcrubms studio={studioName} job={jobTitle} studioId={studioId} jobId = {id}></Breadcrubms>
+                <Breadcrubms studio={studioName} job={jobTitle} studioId={studioId}></Breadcrubms>
                 <h2 className="mb-m">Description:</h2>
                 {jobDescription.map(line => {
                     return line.split(" ").length <= 5 ? <h3 className="mb-xs"><strong>{line}</strong></h3> : <p>{line}</p>
