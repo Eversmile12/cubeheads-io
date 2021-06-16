@@ -37,7 +37,7 @@ export default function Home({jobs}){
           </Head>
           <StaticHeader></StaticHeader>
           <StandardContentContainer>
-              <JobList jobs={jobs} ></JobList>
+              <JobList jobs={randomJobs} ></JobList>
           </StandardContentContainer>
             
         </div>
