@@ -17,7 +17,7 @@ export async function getStaticProps(){
   }
 }
 
-export default function Home({jobs, retrievedJobCount}){
+export default function Home({jobs}){
   console.log(process.env.DOMAIN_URL)
   let randomJobs = jobs.slice().sort(() => Math.random() - 0.5)
     return (
