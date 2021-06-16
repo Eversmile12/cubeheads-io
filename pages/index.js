@@ -13,7 +13,6 @@ export async function getStaticProps(){
   return {
     props:{
       jobs: data.jobs,
-      retrievedJobCount: data.jobs_count
     }, revalidate: 10
   }
 }
@@ -39,7 +38,7 @@ export default function Home({jobs, retrievedJobCount}){
           </Head>
           <StaticHeader></StaticHeader>
           <StandardContentContainer>
-              <JobList jobs={randomJobs} retrievedJobCount={retrievedJobCount}></JobList>
+              <JobList jobs={randomJobs} ></JobList>
           </StandardContentContainer>
             
         </div>

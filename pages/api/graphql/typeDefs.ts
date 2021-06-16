@@ -2,7 +2,7 @@ import { gql } from "apollo-server-micro"
 
 export const typeDefs = gql`
     type Query {
-        jobs (count: Int, offset: Int, unique: Boolean = false, roleContains: String, locationContains: String, id: Int, studioId: Int): [Job!]!
+        jobs (count: Int, offset: Int, unique: Boolean = false, roleContains: String, locationContains: String, id: Int, studioId: Int, studioName: String): [Job!]!
         job(id: Int) : Job!
         studio(id: Int) : Studio!
         studios(count: Int , offset: Int = 0, unique: Boolean = false): [Studio!]!

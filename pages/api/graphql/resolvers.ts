@@ -13,9 +13,17 @@ export const resolvers = {
                         jobLocation: {
                             contains: args.locationContains
                         },
-                        studioId: args.studioId
+                        studioId: args.studioId,
+                        studio:{
+                            studioName: {
+                                contains: args.studioName
+                                
+                            }
+                        }
                     }
                 },
+              
+                    
                 take: args.count,
                 skip: args.offset
             })

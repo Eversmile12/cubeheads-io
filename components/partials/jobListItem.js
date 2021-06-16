@@ -77,7 +77,7 @@ export default function JobListItem({keyValue ,jobRole, jobLocation, studio, job
     return(
         <ListItemContainer key={keyValue}>
             <ImageContainer href={"/jobs/" + keyValue}>
-                <StudioLogo alt={studio + " logo"} src={studioLogo}></StudioLogo>
+                <StudioLogo alt={studio + " logo"} src={studioLogo.length > 1 ? studioLogo : "/studio-logo-placeholder.png" }></StudioLogo>
             </ImageContainer>
           
             
