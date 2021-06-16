@@ -18,7 +18,7 @@ export async function getStaticProps(){
 }
 
 export default function Home({jobs}){
-  let randomJobs = jobs.slice().sort(() => Math.random() - 0.5)
+  // let randomJobs = jobs.slice().sort(() => Math.random() - 0.5)
     return (
         <div>
           <Head>
@@ -37,7 +37,7 @@ export default function Home({jobs}){
           </Head>
           <StaticHeader></StaticHeader>
           <StandardContentContainer>
-              <JobList jobs={randomJobs} ></JobList>
+              <JobList jobs={jobs} ></JobList>
           </StandardContentContainer>
             
         </div>
