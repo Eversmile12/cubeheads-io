@@ -65,9 +65,10 @@ const CTAButton = styled.a`
 background-color: #FF305E;
 border-radius: 3px;
 color: #FFFFFA;
-padding: .9rem 2rem;
+padding: 1rem 1.5rem;
 border: none;
-font-size: 1.3rem;
+font-size: 1.4rem;
 cursor: pointer;
+font-weight: 600;
 `
 export { SubmitButton, FilterButton, MainButton, NavButton, CTAButton }

@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className={styles.footer}>
             <p className={styles.copyrights}>cubeheads.io © {thisYear}</p>
-            <a href="https://twitter.com/CubeheadsI"><FontAwesomeIcon height="18px" style={{"color" : "#1DA1F2", "marginTop": ".5rem"}} icon={faTwitter}></FontAwesomeIcon></a>
+            <a href="https://twitter.com/CubeheadsHQ"><FontAwesomeIcon height="18px" style={{"color" : "#1DA1F2", "marginTop": ".5rem"}} icon={faTwitter}></FontAwesomeIcon></a>
         </footer>
     )
 }
