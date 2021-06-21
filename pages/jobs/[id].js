@@ -5,7 +5,7 @@ import { CTAButton } from "../../components/UIElements/buttons"
 import client from "../api/graphql/apolloClient"
 import {GET_JOBS_BY_ID , GET_ALL_JOBS_IDS} from "../api/graphql/queries/queries"
 import Head from "next/head"
-
+import { useRouter } from "next/router"
 
 export const getStaticPaths = async () => {
     const {data} = await client.query({
@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -50,8 +50,13 @@ export const getStaticProps = async (context) =>{
 
 
 export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDescription, jobUrl, studioId, jobLocation}){
+    const router = useRouter()
+    if(router.isFallback){
+        return(
+            <div>Loading...</div>
+        )
+    }
     return(
-        
         <div>
             <Head>
                 <title>{jobTitle + " - " + jobLocation}</title>
