@@ -31,7 +31,7 @@ export default function Custom404(){
             
                 <ErrorMessageContainer>
                     <div style={{"alignSelf" : "center"}}>
-                        <ErrorCode className="mb-s">This page has gone.</ErrorCode>
+                        <ErrorCode className="mb-s">This page is gone.</ErrorCode>
                         <h3 className="mb-l">But there are hundreds of jobs waiting for you!</h3>
                         <CTAButton href="/" >Search other jobs</CTAButton>
                     </div>

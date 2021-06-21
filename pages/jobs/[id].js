@@ -6,6 +6,7 @@ import client from "../api/graphql/apolloClient"
 import {GET_JOBS_BY_ID , GET_ALL_JOBS_IDS} from "../api/graphql/queries/queries"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import Custom404 from '../404'
 
 export const getStaticPaths = async () => {
     const {data} = await client.query({
@@ -27,7 +28,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) =>{
     const idValue = context.params.id
     // console.log(id)
-    const {data} = await client.query({
+    
+    const {loading, error, data} = await client.query({
         query: GET_JOBS_BY_ID ,
         variables: {
             id: parseInt(idValue)
@@ -36,29 +38,41 @@ export const getStaticProps = async (context) =>{
     return{
         props:{ 
             id: idValue,
-            jobTitle: data.job.job_title,
-            studioId: data.job.studio_id.id,
-            studioName: data.job.studio_id.studio_name,
-            studioLogo: data.job.studio_id.studio_logo,
-            jobDescription: data.job.job_description.split("\n"),
-            jobUrl: data.job.job_url,
-            jobLocation: data.job.job_location
+            data: data,
         }, revalidate: 10
     }
 
 }
 
 
-export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDescription, jobUrl, studioId, jobLocation}){
+export default function jobDetails({id,data}){
     const router = useRouter()
+ 
     if(router.isFallback){
         return(
             <div>Loading...</div>
         )
     }
+    if(!data.job){
+        return (
+            <div>
+                <Custom404 />
+            
+            </div>
+      )
+    }
+    const jobTitle = data.job.job_title
+    const studioId = data.job.studio_id.id
+    const studioName = data.job.studio_id.studio_name
+    const studioLogo = data.job.studio_id.studio_logo
+    const jobDescription = data.job.job_description.split("\n")
+    const jobUrl = data.job.job_url
+    const jobLocation = data.job.job_location
+
+    
     return(
         <div>
-            <Head>
+            <Head key="meta">
                 <title>{jobTitle + " - " + jobLocation}</title>
                 <meta property="og:title" content={jobTitle + "-" +  jobLocation}></meta>
                 <meta property="og:description" content={jobDescription.join(" ").substring(0,150)}></meta>
@@ -66,7 +80,7 @@ export default function jobDetails({id,studioName, studioLogo, jobTitle, jobDesc
                 <meta property="og:url" content={"https://cubeheads.io/jobs" + id}></meta>
                 <meta property="og:type" content="job"></meta>
                 <meta name="description" content={jobDescription.toString().substring(0, 150)}></meta>
-                <meta name="robots" content="index, follow"></meta>
+                <meta name="robots" content="index, follow" key="robots"></meta>
                 <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
                 <meta name="twitter:site" content="@CubeheadsI"></meta>
                 <meta name="twitter:creator" content="@CubeheadsI"></meta>

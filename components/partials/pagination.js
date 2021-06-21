@@ -81,7 +81,7 @@ export default function Pagination({totalItems, perPage, onClickHandler}){
 
 
     useEffect(() => {
-        console.log("setting last and first page")
+        // console.log("setting last and first page")
         if(currentPage == lastPage-1 || currentPage == lastPage){
             if(lastPage+3 <= numOfPages){
                 setLastPage(lastPage+3)
@@ -101,7 +101,7 @@ export default function Pagination({totalItems, perPage, onClickHandler}){
 
     useEffect(() => {
         setCurrentPage(1)
-        console.log("setting current page", currentPage)
+        // console.log("setting current page", currentPage)
     }, [totalItems])
 
 
@@ -109,7 +109,7 @@ export default function Pagination({totalItems, perPage, onClickHandler}){
     // 
 
     function changePage(page){
-        console.log(page, numOfPages)
+        // console.log(page, numOfPages)
         if(page < 1 || page > numOfPages){
             return
         }
@@ -121,7 +121,7 @@ export default function Pagination({totalItems, perPage, onClickHandler}){
             setLastPage(newLastPage)
             
         }else if(page == numOfPages){
-            console.log("last page reached")
+            // console.log("last page reached")
             setLastPage(page)
             const newFirstPage = page-(perPage-1) < firstPage ? 1 : page-(perPage-1)
             setFirstPage(newFirstPage)
@@ -130,10 +130,10 @@ export default function Pagination({totalItems, perPage, onClickHandler}){
         onClickHandler(page)
         setCurrentPage(page);
     }
-    console.log("Total page: ", numOfPages)
-    console.log("First page", firstPage)
-    console.log("Last page", lastPage)
-    console.log("Current page", currentPage)
+    // console.log("Total page: ", numOfPages)
+    // console.log("First page", firstPage)
+    // console.log("Last page", lastPage)
+    // console.log("Current page", currentPage)
 
     const pages = []
     for(let i = firstPage; i < lastPage; i++){
