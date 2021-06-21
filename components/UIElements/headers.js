@@ -19,9 +19,9 @@ const TitleHeader = styled.h1`
     letter-spacing: 2px;
     color: #FF305E;
     @media (max-width: 768px){
-        font-size: 3rem;
+        font-size: 2rem;
         max-width: 80%;
-        margin-bottom: 4rem
+        margin-bottom: 2.5rem
     }
      
 `;

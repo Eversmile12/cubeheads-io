@@ -49,6 +49,8 @@ const ImageContainer = styled.a`
 `
 const JobTitle = styled.h2`
     font-size: 1.6rem;
+
+    
 `
 
 const JobInfo = styled.p`
