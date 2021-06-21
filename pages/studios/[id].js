@@ -52,7 +52,7 @@ export const getStaticProps = async(context) => {
 
 
 export default function studioDetails({studioId, studioName, studioWebsite, studioLogo, jobs, studioLocation}){
-    console.log(jobs)
+    // console.log(jobs)
     return (
         <div>
             <Head>
