@@ -24,7 +24,6 @@ export const getStaticPaths = async () => {
     }
 }
 
-
 export const getStaticProps = async (context) =>{
     const idValue = context.params.id
     // console.log(id)
