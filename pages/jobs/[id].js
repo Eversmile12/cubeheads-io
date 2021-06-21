@@ -34,7 +34,6 @@ export const getStaticProps = async (context) =>{
             id: parseInt(idValue)
         }
     })
-    console.log(data)
     return{
         props:{ 
             id: idValue,

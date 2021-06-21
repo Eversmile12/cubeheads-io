@@ -23,7 +23,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async(context) => {
     const studioId = context.params.id
-    console.log(studioId)
 
     const { data }  = await client.query({
         query: GET_STUDIO_BY_ID,
@@ -38,8 +37,6 @@ export const getStaticProps = async(context) => {
             studioId : parseInt(studioId)
         }
     })
-
-    console.log(data)
 
     return{
         props:{
