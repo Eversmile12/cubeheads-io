@@ -29,14 +29,7 @@ h1{
   font-size: 2.4rem;
 }
 
-a{
-  color: #FF305E;
-  text-decoration: none   ;
-}
 
-a:hover{
-  text-decoration: underline;
-}
 
 
 p{
@@ -76,6 +69,9 @@ p.x-small{
 .mr-l{
   margin-right:4rem;
 }
+.ml-s{
+  margin-left:1rem;
+}
 
 
 .ml-m{
@@ -89,6 +85,15 @@ p.x-small{
 .mb-l{
   margin-bottom:4rem;
 }
+
+.mt-s{
+  margin-top:1rem;
+}
+
+.mt-m{
+  margin-top:2rem;
+}
+
 
 
 .l-round { 

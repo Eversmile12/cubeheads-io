@@ -9,6 +9,8 @@
     min-height: 50rem;
     overflow: hidden;
     padding: 0 20rem;
+
+   
 }
 
 .textContainer{
@@ -48,9 +50,7 @@
 }
 
 @media screen and (max-width: 812px) {
-    .wrapper{
-        padding: 0 5rem;
-    }
+  
     .imgContainer{
         display: none;
     }
@@ -62,7 +62,11 @@
 }
 
 @media screen and (max-width: 667px) {
-
+    
+    .wrapper{
+        height: 85vh;
+        padding: 0 3rem;
+    }
     .textContainer{
         width: 100%;
     }

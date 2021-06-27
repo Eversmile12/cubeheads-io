@@ -1,6 +1,6 @@
 import {MainButton} from "../UIElements/buttons"
 import styled from "styled-components"
-
+import Link from "next/link"
 
 const JobListContainer = styled.div`
   width: 70%;
@@ -86,7 +86,7 @@ export default function JobListItem({keyValue ,jobRole, jobLocation, studio, job
             <TextContainer className="mr-m">
                 <div >
                     <JobTitle>{jobRole}</JobTitle>
-                    <a href={"/studios/" + studioId }><JobInfo>{studio}</JobInfo></a>
+                        <Link href={"/studios/" + studioId }><JobInfo>{studio}</JobInfo></Link>
                     <JobInfo>{jobLocation}</JobInfo>
                 </div>
                 <JobDescription>{jobDescription.substring(0,150)}.. </JobDescription>

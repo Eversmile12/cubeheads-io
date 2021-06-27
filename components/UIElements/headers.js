@@ -4,9 +4,10 @@ const XlHeader = styled.h1`
     font-size: 4.8rem;
     letter-spacing: 2px;
     color: #FF305E;
+
     @media (max-width: 768px){
-        font-size: 3.5rem;
-        max-width: 90%;
+        font-size: 3.2rem;
+        max-width: 100%;
         margin-bottom: 2rem
     }
      

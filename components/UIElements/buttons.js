@@ -5,11 +5,14 @@ const SubmitButton = styled.div`
     font-size: 1.3rem;
     background:  #FF305E;
     font-weight: 600;
+    width: 98%;
     padding: 1rem 1.5rem;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     cursor: pointer;
+    margin-top: 1rem;
+    text-align: center;
     @media screen and (max-width: 667px) {
-
+        font-size: 1.6rem;
         padding: 1.5rem .8rem;
         
     }

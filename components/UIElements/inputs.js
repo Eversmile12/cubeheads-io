@@ -20,23 +20,52 @@ const InputContainer = styled.div`
 
 
 const FormInput = styled.input`
-    margin-top: 4rem;
+    line-height: 1.3em;
     padding: 1rem;
-    width: 45%;
+    width: 55%;
     border: none;
     background: #fff;
-    font-size: 1.3rem;
+    border-radius: 4px;
     :focus{
         outline: none;
     }
     @media screen and (max-width: 667px){
-        width: 52%;
+        width: 50%;
         padding: 1.5rem;
     }
 
 
 
 `;
+
+const FormDropdown = styled.select`
+    line-height: 1.3em;
+    padding: 1rem;
+    width: 40%;
+    border: none;
+    background: #fff;
+    border-radius: 4px;
+    :focus{
+        outline: none;
+    }
+    @media screen and (max-width: 667px){
+        width: 45%;
+        padding: 1.5rem;
+    }
+`
+
+const FormInputLabel = styled.label`
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius:  4px 0 0 4px;
+    display: inline-block;
+    width: 13%;
+
+    @media screen and (max-width: 1220px ){
+        width: 20%
+    }
+   
+`
 
 const FilterTextInputLabel = styled.label`
     border: 1px solid #E1E1E1;
@@ -86,15 +115,7 @@ const FilterTextInputPartial = styled.input`
 
 `
 
-const FilterDropDownPartial = styled.select`
-    padding: .7rem;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-    width: 80%;
-    :focus{
-        outline: none;
-    }
-`
+
 
 function FilterTextInput({placeholder, context, value, onChangeHandler, className }){
     return(
@@ -124,18 +145,5 @@ function FilterDisabledInput({placeholder, context, value, onChangeHandler, clas
 
 
 
-function FilterDropDown({className}){
-    return (
-        <InputContainer className={className}>
-            <FilterDropDownPartial defaultValue = "Location" >
-                <option value="Location" disabled>Location</option>        
-                <option value="placeholder">placeholder</option>
-                <option value="placeholder">placeholder</option>
-                <option value="placeholder">placeholder</option>
-            </FilterDropDownPartial>
-        </InputContainer>
-       
-    )
-}
 
-export { FormInput, FilterTextInput, FilterDisabledInput, InputContainer };
+export { FormInput, FilterTextInput, FilterDisabledInput, FormDropdown, InputContainer, FormInputLabel };
