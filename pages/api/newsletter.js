@@ -49,32 +49,36 @@ export default async (req, res)=>{
         createContact.email = email
         switch(expertise){
             case "Animator" :
-                createContact.listIds = [3]
+                createContact.listIds = [14,3]
                 break;
             case "Concept Artist" :
-                createContact.listIds = [4]
+                createContact.listIds = [14,4]
                 break;
             case "Developer" :
-                createContact.listIds = [5]
+                createContact.listIds = [14,5]
                 break;
             case "Environment Artist" :
-                createContact.listIds = [6]
+                createContact.listIds = [14,6]
                     break;
             case "FX Artist" :
-                createContact.listIds = [7]
+                createContact.listIds = [14,7]
                 break;
             case "Lighting Artist" :
-                createContact.listIds = [8]
+                createContact.listIds = [14,8]
                 break;
             case "Texture Artist" :
-                createContact.listIds = [9]
+                createContact.listIds = [14,9]
                 break;
             case "Unity" :
-                createContact.listIds = [10]
+                createContact.listIds = [14,10]
                 break;
             case "Unreal" :
-                createContact.listIds = [11]
+                createContact.listIds = [14,11]
                 break;
+            default:
+                createContact.listIds = [14,2]
+                break;
+
         }
 
 
