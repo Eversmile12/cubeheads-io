@@ -8,8 +8,8 @@ export default function StaticHeader({props}){
         <div className={styles.wrapper}>
             <div className={styles.textContainer}>
                 <XlHeader className="mb-m">Gamedev jobs at the tips of your fingers</XlHeader>
-                <p style={{"line-height" : "1.5em"}} className="mb-s">Join <strong>100+ Artists. </strong> Receive stunning jobs in wonderful game studios.</p>
-                <ul className="mb-l" style={{"lineHeight" : "1.4em"}}>
+                <p style={{"lineHeight" : "1.5em"}} className="mb-s">Join <strong>100+ Artists. </strong> Receive stunning jobs in wonderful game studios.</p>
+                <ul className="mb-l mt-m" style={{"lineHeight" : "1.6em"}}>
                     <li>
                         Tailored on your expertise.
                     </li>

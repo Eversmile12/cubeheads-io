@@ -77,7 +77,8 @@ const FilterTextInputLabel = styled.label`
     width: 13%;
 
     @media screen and (max-width: 1220px ){
-        width: 20%
+        min-width: 20%;
+        padding: 1.5rem .8rem;
     }
    
 `
@@ -107,6 +108,7 @@ const FilterTextInputPartial = styled.input`
     
     @media screen and (max-width: 667px) {
         width:100%;
+        padding: 1.5rem 1rem;
     }
 
 }

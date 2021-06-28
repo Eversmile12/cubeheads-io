@@ -1,58 +1,44 @@
-import JobPageContainer from "../../components/layouts/jobPageContainer"
-import StudioHeader from "../../components/StudioHeader"
-import Breadcrubms from "../../components/breadcrumbs"
-import { CTAButton } from "../../components/UIElements/buttons"
-import client from "../api/graphql/apolloClient"
-import {GET_JOBS_BY_ID , GET_ALL_JOBS_IDS} from "../api/graphql/queries/queries"
+import JobPageContainer from "../../../components/layouts/jobPageContainer"
+import StudioHeader from "../../../components/StudioHeader"
+import Breadcrubms from "../../../components/breadcrumbs"
+import { CTAButton } from "../../../components/UIElements/buttons"
+import client from "../../api/graphql/apolloClient"
+import {GET_JOBS_BY_ID} from "../../api/graphql/queries/queries"
 import Head from "next/head"
-import { useRouter } from "next/router"
-import Custom404 from '../404'
 
-export const getStaticPaths = async () => {
-    const {data} = await client.query({
-        query: GET_ALL_JOBS_IDS
-    })
+import Custom404 from '../../404'
 
-    const paths = data.jobs.map(job => {
-        return {
-            params: {id: job.id.toString()}
-        }
-    })
 
-    return {
-        paths,
-        fallback: true
-    }
-}
-
-export const getStaticProps = async (context) =>{
-    const idValue = context.params.id
+export const getServerSideProps = async (context) =>{
+     
     // console.log(id)
-    
+    console.log(context)
     const {loading, error, data} = await client.query({
         query: GET_JOBS_BY_ID ,
         variables: {
-            id: parseInt(idValue)
+            id: parseInt(context.params.id)
         }
     })
+    console.log(context.params.jobTitle)
+    console.log(data.job.job_title)
+    if(data.job.job_title != context.params.jobTitle){
+        context.res.statusCode = 301
+        context.res.setHeader('Location', `/jobs/${context.params.id}/${data.job.job_title}`)
+        context.res.end()
+    }
     return{
         props:{ 
-            id: idValue,
+            id: context.params.id,
             data: data,
-        }, revalidate: 10
+        }
     }
 
 }
 
 
 export default function jobDetails({id,data}){
-    const router = useRouter()
+
  
-    if(router.isFallback){
-        return(
-            <div>Loading...</div>
-        )
-    }
     if(!data.job){
         return (
             <div>
@@ -86,8 +72,9 @@ export default function jobDetails({id,data}){
                 <meta name="twitter:creator" content="@CubeheadsI"></meta>
             </Head>
             <StudioHeader studioId = {studioId} studioName = {studioName} logo = {studioLogo} title ={jobTitle} location = {jobLocation} ></StudioHeader>
+            <Breadcrubms style={{"margin": "0 auto"}} studio={studioName} job={jobTitle} studioId={studioId}></Breadcrubms>
             <JobPageContainer>
-                <Breadcrubms studio={studioName} job={jobTitle} studioId={studioId}></Breadcrubms>
+                
                 <h2 className="mb-m">Description:</h2>
                 {jobDescription.map(line => {
                     return line.split(" ").length <= 5 ? <h3 className="mb-xs"><strong>{line}</strong></h3> : <p>{line}</p>

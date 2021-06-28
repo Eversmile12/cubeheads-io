@@ -49,7 +49,8 @@ const ImageContainer = styled.a`
 `
 const JobTitle = styled.h2`
     font-size: 1.6rem;
-
+    color: black;
+    font-decoration: none;
     
 `
 
@@ -78,21 +79,21 @@ const StudioLogo = styled.img`
 export default function JobListItem({keyValue ,jobRole, jobLocation, studio, jobDescription, studioLogo, studioId}){
     return(
         <ListItemContainer key={keyValue}>
-            <ImageContainer href={"/jobs/" + keyValue}>
+            <ImageContainer href={`/jobs/${keyValue}/${jobRole}`}>
                 <StudioLogo alt={studio + " logo"} src={studioLogo.length > 1 ? studioLogo : "/studio-logo-placeholder.png" }></StudioLogo>
             </ImageContainer>
           
             
             <TextContainer className="mr-m">
                 <div >
-                    <JobTitle>{jobRole}</JobTitle>
-                        <Link href={"/studios/" + studioId }><JobInfo>{studio}</JobInfo></Link>
+                    <Link href={`/jobs/${keyValue}/${jobRole}`}><a><JobTitle>{jobRole}</JobTitle></a></Link>
+                        <Link href={"/studios/" + studioId }><a><JobInfo>{studio}</JobInfo></a></Link>
                     <JobInfo>{jobLocation}</JobInfo>
                 </div>
                 <JobDescription>{jobDescription.substring(0,150)}.. </JobDescription>
             
             </TextContainer>
-                <MainButton href={"/jobs/" + keyValue}>Learn More</MainButton>
+                <MainButton href={`/jobs/${keyValue}/${jobRole}`}>Learn More</MainButton>
         </ListItemContainer>
     )
 }

@@ -46,6 +46,8 @@ const FilterButton = styled.button`
     cursor: pointer;
     @media screen and (max-width: 667px) {
         width: 100%;
+        margin-top:1rem;
+        padding: 1rem 2rem;
     }
 `
 

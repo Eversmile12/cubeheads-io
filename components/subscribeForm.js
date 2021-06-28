@@ -108,7 +108,7 @@ const SubscribeForm = () => {
                 <div  className={hasError == "CHECKBOX" ? "error" : ""} style ={{"margin-top": "2rem", "width" : "30rem", "padding" : "0 .5rem 0 .5rem" }}>
                     <label for="privacy-policies" style={{"display" : "none"}}></label>
                     <input id="privacy-policies" onChange={() => updateCheckBoxIsChecked(!checkboxIsChecked)}   type="checkbox"></input>
-                    <p style={{"display": "inline-block", "margin-left" : "1rem"}} className="x-small" > I accept the <PrivacyPolicyLink style={{"color" : "#FF305E"}} href="https://www.freeprivacypolicy.com/live/d1da3cc5-c336-437a-b469-fab34d7c3bb0">privacy policies</PrivacyPolicyLink></p>
+                    <p style={{"display": "inline-block", "margin-left" : "1rem"}} className="x-small" > I accept the <PrivacyPolicyLink style={{"color" : "#FF305E", "textDecoration" : "underline"}} href="https://www.freeprivacypolicy.com/live/d1da3cc5-c336-437a-b469-fab34d7c3bb0">privacy policies</PrivacyPolicyLink></p>
                 </div> 
                 {
                     isError && <p style={{"marginTop": "2rem", "color" : "#ff976a"}}> { message }</p>

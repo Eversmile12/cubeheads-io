@@ -6,7 +6,7 @@ const XlHeader = styled.h1`
     color: #FF305E;
 
     @media (max-width: 768px){
-        font-size: 3.2rem;
+        font-size: 4rem;
         max-width: 100%;
         margin-bottom: 2rem
     }

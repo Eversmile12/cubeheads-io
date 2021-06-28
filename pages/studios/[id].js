@@ -5,6 +5,7 @@ import JobListItem, { JobListContainer} from "../../components/partials/jobListI
 import StandardContentContainer from "../../components/layouts/standardContentContainer"
 import Breadcrubms from "../../components/breadcrumbs"
 import Head from "next/head"
+
 export const getStaticPaths = async () => {
     const { data } = await client.query({query : GET_ALL_STUDIOS_IDS}) 
 
@@ -69,9 +70,11 @@ export default function studioDetails({studioId, studioName, studioWebsite, stud
                 <meta name="twitter:creator" content="@CubeheadsI"></meta>
             </Head>
             <StudioHeader  title = {studioName} logo = {studioLogo} location ={studioLocation}  ></StudioHeader>
+            <Breadcrubms studio={studioName} studioId={studioId}></Breadcrubms>
             <StandardContentContainer>
+            
                 <JobListContainer >
-                <Breadcrubms studio={studioName} studioId={studioId}></Breadcrubms>
+                
                 <div>
                     <p>Jobs found: {jobs.length}</p>
                     <ul>
