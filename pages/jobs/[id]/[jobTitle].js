@@ -19,19 +19,28 @@ export const getServerSideProps = async (context) =>{
             id: parseInt(context.params.id)
         }
     })
-    console.log(context.params.jobTitle)
-    console.log(data.job.job_title)
-    if(data.job.job_title != context.params.jobTitle){
-        context.res.statusCode = 301
-        context.res.setHeader('Location', `/jobs/${context.params.id}/${data.job.job_title}`)
-        context.res.end()
-    }
-    return{
-        props:{ 
-            id: context.params.id,
-            data: data,
-        }
-    }
+    
+       try{
+            if(data.job.job_title != context.params.jobTitle){
+                context.res.statusCode = 301
+                context.res.setHeader('Location', `/jobs/${context.params.id}/${data.job.job_title}`)
+                context.res.end()
+            }
+            return{
+                props:{ 
+                    id: context.params.id,
+                    data: data,
+                }
+            }
+       }catch(err){
+            return{
+                props:{
+                    data:""
+                }
+            }
+       }
+    
+    
 
 }
 

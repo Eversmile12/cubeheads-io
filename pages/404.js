@@ -2,6 +2,7 @@ import styles from "../styles/staticHeader.module.css"
 import styled from "styled-components"
 import {CTAButton} from "../components/UIElements/buttons"
 import Image from "next/image"
+import Link from "next/link"
 const ErrorMessageContainer = styled.div`
     background-color: #0E1526;
     overflow: hidden;
@@ -33,7 +34,7 @@ export default function Custom404(){
                     <div style={{"alignSelf" : "center"}}>
                         <ErrorCode className="mb-s">This page is gone.</ErrorCode>
                         <h3 className="mb-l">But there are hundreds of jobs waiting for you!</h3>
-                        <CTAButton href="/" >Search other jobs</CTAButton>
+                        <Link href="/" passHref><CTAButton >Search other jobs</CTAButton></Link>
                     </div>
                     <div className={styles.imgContainer} >
                       <Image className={styles.headerImage} src="/404-image.png" height="600" width="600"></Image>
