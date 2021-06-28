@@ -20,7 +20,7 @@ export default async (req, res) => {
     const {data} = await client.query({query: GET_ALL_JOBS_IDS})
     data.jobs.forEach(job => {
         smStream.write({
-            url:`jobs/${job.id}`,
+            url:`jobs/${job.id}/${job.job_title}`,
             lastmod: today.toISOString(),
             priority: 0.8
         })

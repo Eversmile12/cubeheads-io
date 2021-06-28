@@ -38,6 +38,7 @@ const GET_ALL_JOBS_IDS = gql`
 {
     jobs{
       id
+      job_title
     }
 }`;
 
